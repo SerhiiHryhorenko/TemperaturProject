@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE726E9D237BE38200C99DD2 /* CellDayTemper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */; };
+		CE726E9F237BE49B00C99DD2 /* SunRiseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */; };
+		CE726EA2237BF27600C99DD2 /* ModelTVCellDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */; };
+		CE726EA4237BF29D00C99DD2 /* ModelTVCellSunRS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA3237BF29C00C99DD2 /* ModelTVCellSunRS.swift */; };
+		CE726EA6237BF30300C99DD2 /* ModelColViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA5237BF30300C99DD2 /* ModelColViewCell.swift */; };
 		CEEB0C142371EE0E00CF8F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */; };
 		CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */; };
 		CEEB0C182371EE0E00CF8F37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C172371EE0E00CF8F37 /* ViewController.swift */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDayTemper.swift; sourceTree = "<group>"; };
+		CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunRiseSet.swift; sourceTree = "<group>"; };
+		CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTVCellDay.swift; sourceTree = "<group>"; };
+		CE726EA3237BF29C00C99DD2 /* ModelTVCellSunRS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTVCellSunRS.swift; sourceTree = "<group>"; };
+		CE726EA5237BF30300C99DD2 /* ModelColViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelColViewCell.swift; sourceTree = "<group>"; };
 		CEEB0C102371EE0E00CF8F37 /* TemperaturProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemperaturProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +47,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE726EA0237BE59C00C99DD2 /* ClassesTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */,
+				CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */,
+			);
+			path = ClassesTVCell;
+			sourceTree = "<group>";
+		};
+		CE726EA7237BF31100C99DD2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */,
+				CE726EA3237BF29C00C99DD2 /* ModelTVCellSunRS.swift */,
+				CE726EA5237BF30300C99DD2 /* ModelColViewCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CEEB0C072371EE0E00CF8F37 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +88,8 @@
 				CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */,
 				CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */,
 				CEEB0C172371EE0E00CF8F37 /* ViewController.swift */,
+				CE726EA7237BF31100C99DD2 /* Models */,
+				CE726EA0237BE59C00C99DD2 /* ClassesTVCell */,
 				CEEB0C192371EE0E00CF8F37 /* Main.storyboard */,
 				CEEB0C1C2371EE1100CF8F37 /* Assets.xcassets */,
 				CEEB0C1E2371EE1100CF8F37 /* LaunchScreen.storyboard */,
@@ -138,8 +169,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE726EA2237BF27600C99DD2 /* ModelTVCellDay.swift in Sources */,
 				CEEB0C182371EE0E00CF8F37 /* ViewController.swift in Sources */,
+				CE726E9D237BE38200C99DD2 /* CellDayTemper.swift in Sources */,
+				CE726EA6237BF30300C99DD2 /* ModelColViewCell.swift in Sources */,
 				CEEB0C142371EE0E00CF8F37 /* AppDelegate.swift in Sources */,
+				CE726EA4237BF29D00C99DD2 /* ModelTVCellSunRS.swift in Sources */,
+				CE726E9F237BE49B00C99DD2 /* SunRiseSet.swift in Sources */,
 				CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
