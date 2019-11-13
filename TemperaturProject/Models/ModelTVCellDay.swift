@@ -11,5 +11,5 @@ import Foundation
 struct ModelTVCellDay {
     var dayName: String
     var minTemp: Double
-    var maxTem: Double
+    var maxTemp: Double
 }

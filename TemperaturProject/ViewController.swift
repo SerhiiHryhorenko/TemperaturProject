@@ -10,8 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var arrayDay = ["Sunday", "Monday", "Tuesday", "Wensday", "Thursday", "Friday", "Saturday"]
-    var arrayData = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
+    //var arrayData = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
+    
+    var arrSunRS: [ModelTVCellSunRS] = [
+           ModelTVCellSunRS(sunRise: "SunRise", sRTime: "4.53", sunSet: "SunSet", sSTime: "3.56")
+           ] {
+           didSet {
+               TableViewDay.reloadData()
+           }
+       }
+
+       var arrDayTemp: [ModelTVCellDay] = [
+           ModelTVCellDay(dayName: "Sunday", minTemp: 12.0, maxTemp: 11.0),
+           ModelTVCellDay(dayName: "Monday", minTemp: 12.0, maxTemp: 11.0),
+           ModelTVCellDay(dayName: "Tuesday", minTemp: 12.0, maxTemp: 11.0),
+           ModelTVCellDay(dayName: "Wensday", minTemp: 12.0, maxTemp: 11.0),
+           ModelTVCellDay(dayName: "Thursday", minTemp: 12.0, maxTemp: 11.0),
+           ModelTVCellDay(dayName: "Friday", minTemp: 12.0, maxTemp: 11.0),
+           ModelTVCellDay(dayName: "Saturday", minTemp: 12.0, maxTemp: 11.0)
+           ] {
+           didSet {
+               TableViewDay.reloadData()
+           }
+       }
     
     @IBOutlet weak var TableViewDay: UITableView!
     @IBOutlet weak var CollectionViewData: UICollectionView!
@@ -19,8 +40,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdintifier: reuseIdintifier)
-        // Do any additional setup after loading the view.
+        TableViewDay.delegate = self
+        TableViewDay.dataSource = self
+
+        CollectionViewData.delegate = self
+        CollectionViewData.dataSource = self
     }
     
 }
@@ -41,18 +65,34 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
            default:
                break
            }
-           return arrayDay.count  // 0
+           return arrDayTemp.count  // 0
        }
     
     //MARK: - create TableViewCell
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellDayTemper", for: indexPath)
-        
-        let numberDay = arrayDay[indexPath.row]
-        cell.textLabel?.text = numberDay
-        return cell
+            switch indexPath.section {
+            case 0:
+                let firstCell = TableViewDay.dequeueReusableCell(withIdentifier: "cellDayTemper") as! CellDayTemper
+
+                firstCell.dayLable.text = arrDayTemp[indexPath.row].dayName
+                firstCell.tMaxLbl.text = "\(arrDayTemp[indexPath.row].maxTemp)"
+                firstCell.tMinLbl.text = "\(arrDayTemp[indexPath.row].minTemp)"
+
+                return firstCell
+            case 1:
+                let secondCell = TableViewDay.dequeueReusableCell(withIdentifier: "sunRiseSet") as! SunRiseSet
+
+                secondCell.sunRise.text = arrSunRS[indexPath.row].sunRise
+                secondCell.sRTime.text = arrSunRS[indexPath.row].sRTime
+                secondCell.sunSet.text = arrSunRS[indexPath.row].sunSet
+                secondCell.sSTime.text = arrSunRS[indexPath.row].sSTime
+
+                return secondCell
+            default:
+                return UITableViewCell()
+            }
     }
 }
 
@@ -70,20 +110,5 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
       cell.backgroundColor = .black
       return cell
     }
-    
-//    let collectionViewLayout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
-////    collectionViewLayout.itemSize = UICollectionViewFlowLayout.automaticSize
-////    collectionViewLayout.estimatedItemSize = CGSize(wi)
-//
-//    func preferredLayoutAttributesFitting(_layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-//        //setNeedsLayout()
-//        layoutIfNeeded()
-//        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-//        var
-//
-//
-//        return lauoutAttributes
-//    }
-    
     
 }
