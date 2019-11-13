@@ -107,7 +107,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
       _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       let cell = collectionView
         .dequeueReusableCell(withReuseIdentifier: "cellCVTemp", for: indexPath)
-      cell.backgroundColor = .black
+      cell.backgroundColor = .clear
       return cell
     }
     
