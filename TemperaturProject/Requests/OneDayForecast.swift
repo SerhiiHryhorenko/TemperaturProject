@@ -12,7 +12,6 @@ class OneDayForecast {
     let apiKey = APIKey()
     var cityKey = "326175"
     
-    
     func fetchDayForecast(cityKey: Int, details: Bool = false, metric: Bool = false, completion: @escaping (ModelOneDayForecast) -> Void) {
 
         let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/1day/\(cityKey)?apikey=\(apiKey)&details=\(details)&metric=\(metric)"

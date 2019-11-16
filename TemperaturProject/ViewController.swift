@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    //var arrayData = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
+    var arrayTime = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
     
     var arrSunRS: [ModelTVCellSunRS] = [
            ModelTVCellSunRS(sunRise: "SunRise", sRTime: "4.53", sunSet: "SunSet", sSTime: "3.56")
@@ -50,6 +50,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        <#code#>
+    }
     
     //MARK: - Create sections
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -100,15 +104,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return arrayTime.count
     }
     
     func collectionView(
       _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      let cell = collectionView
+      let collectionViewCell = collectionView
         .dequeueReusableCell(withReuseIdentifier: "cellCVTemp", for: indexPath)
-      cell.backgroundColor = .clear
-      return cell
+      collectionViewCell.backgroundColor = .clear
+      return collectionViewCell
     }
     
 }
