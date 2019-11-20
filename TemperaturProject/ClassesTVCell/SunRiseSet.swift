@@ -9,10 +9,9 @@
 import UIKit
 
 class SunRiseSet: UITableViewCell {
-    @IBOutlet weak var sunRise: UILabel!
-    @IBOutlet weak var sunSet: UILabel!
-    @IBOutlet weak var sRTime: UILabel!
-    @IBOutlet weak var sSTime: UILabel!
     
-    
+    @IBOutlet weak var sunRiseLabel: UILabel!
+    @IBOutlet weak var sRTimeLabel: UILabel!
+    @IBOutlet weak var sunSetLabel: UILabel!
+    @IBOutlet weak var sSTimeLabel: UILabel!
 }

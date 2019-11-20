@@ -12,9 +12,15 @@
 		CE726EA2237BF27600C99DD2 /* ModelTVCellDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */; };
 		CE726EA4237BF29D00C99DD2 /* ModelTVCellSunRS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA3237BF29C00C99DD2 /* ModelTVCellSunRS.swift */; };
 		CE726EA6237BF30300C99DD2 /* ModelColViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA5237BF30300C99DD2 /* ModelColViewCell.swift */; };
-		CE726EA9237C88BB00C99DD2 /* ModelOneDayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA8237C88BB00C99DD2 /* ModelOneDayForecast.swift */; };
+		CE726EA9237C88BB00C99DD2 /* ResponsFiveDayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA8237C88BB00C99DD2 /* ResponsFiveDayForecast.swift */; };
 		CE726EAB237C89EE00C99DD2 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EAA237C89EE00C99DD2 /* ApiKey.swift */; };
 		CE726EAE237C8D8A00C99DD2 /* OneDayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EAD237C8D8A00C99DD2 /* OneDayForecast.swift */; };
+		CE89B22E238187DD00BA2442 /* ExtensionViewContTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B22D238187DD00BA2442 /* ExtensionViewContTableVC.swift */; };
+		CE89B2302381888F00BA2442 /* extensionViewConCollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B22F2381888F00BA2442 /* extensionViewConCollVC.swift */; };
+		CE89B2372384706300BA2442 /* ResponsOneDayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B2362384706300BA2442 /* ResponsOneDayForecast.swift */; };
+		CE89B23923856ED900BA2442 /* ResponsCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B23823856ED900BA2442 /* ResponsCity.swift */; };
+		CE89B23B23856F6700BA2442 /* ResponsTwentyHoursForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B23A23856F6600BA2442 /* ResponsTwentyHoursForecast.swift */; };
+		CE89B23D2385717100BA2442 /* ParsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B23C2385717100BA2442 /* ParsData.swift */; };
 		CEEB0C142371EE0E00CF8F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */; };
 		CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */; };
 		CEEB0C182371EE0E00CF8F37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C172371EE0E00CF8F37 /* ViewController.swift */; };
@@ -29,9 +35,15 @@
 		CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTVCellDay.swift; sourceTree = "<group>"; };
 		CE726EA3237BF29C00C99DD2 /* ModelTVCellSunRS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTVCellSunRS.swift; sourceTree = "<group>"; };
 		CE726EA5237BF30300C99DD2 /* ModelColViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelColViewCell.swift; sourceTree = "<group>"; };
-		CE726EA8237C88BB00C99DD2 /* ModelOneDayForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelOneDayForecast.swift; sourceTree = "<group>"; };
+		CE726EA8237C88BB00C99DD2 /* ResponsFiveDayForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsFiveDayForecast.swift; sourceTree = "<group>"; };
 		CE726EAA237C89EE00C99DD2 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		CE726EAD237C8D8A00C99DD2 /* OneDayForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayForecast.swift; sourceTree = "<group>"; };
+		CE89B22D238187DD00BA2442 /* ExtensionViewContTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewContTableVC.swift; sourceTree = "<group>"; };
+		CE89B22F2381888F00BA2442 /* extensionViewConCollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionViewConCollVC.swift; sourceTree = "<group>"; };
+		CE89B2362384706300BA2442 /* ResponsOneDayForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsOneDayForecast.swift; sourceTree = "<group>"; };
+		CE89B23823856ED900BA2442 /* ResponsCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsCity.swift; sourceTree = "<group>"; };
+		CE89B23A23856F6600BA2442 /* ResponsTwentyHoursForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsTwentyHoursForecast.swift; sourceTree = "<group>"; };
+		CE89B23C2385717100BA2442 /* ParsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsData.swift; sourceTree = "<group>"; };
 		CEEB0C102371EE0E00CF8F37 /* TemperaturProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemperaturProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +80,10 @@
 				CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */,
 				CE726EA3237BF29C00C99DD2 /* ModelTVCellSunRS.swift */,
 				CE726EA5237BF30300C99DD2 /* ModelColViewCell.swift */,
-				CE726EA8237C88BB00C99DD2 /* ModelOneDayForecast.swift */,
+				CE89B23823856ED900BA2442 /* ResponsCity.swift */,
+				CE89B23A23856F6600BA2442 /* ResponsTwentyHoursForecast.swift */,
+				CE89B2362384706300BA2442 /* ResponsOneDayForecast.swift */,
+				CE726EA8237C88BB00C99DD2 /* ResponsFiveDayForecast.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -76,7 +91,9 @@
 		CE726EAC237C8D4A00C99DD2 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				CE726EAA237C89EE00C99DD2 /* ApiKey.swift */,
 				CE726EAD237C8D8A00C99DD2 /* OneDayForecast.swift */,
+				CE89B23C2385717100BA2442 /* ParsData.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -103,7 +120,8 @@
 				CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */,
 				CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */,
 				CEEB0C172371EE0E00CF8F37 /* ViewController.swift */,
-				CE726EAA237C89EE00C99DD2 /* ApiKey.swift */,
+				CE89B22F2381888F00BA2442 /* extensionViewConCollVC.swift */,
+				CE89B22D238187DD00BA2442 /* ExtensionViewContTableVC.swift */,
 				CE726EAC237C8D4A00C99DD2 /* Requests */,
 				CE726EA7237BF31100C99DD2 /* Models */,
 				CE726EA0237BE59C00C99DD2 /* ClassesTVCell */,
@@ -188,15 +206,21 @@
 			files = (
 				CE726EAB237C89EE00C99DD2 /* ApiKey.swift in Sources */,
 				CE726EA2237BF27600C99DD2 /* ModelTVCellDay.swift in Sources */,
+				CE89B2302381888F00BA2442 /* extensionViewConCollVC.swift in Sources */,
 				CEEB0C182371EE0E00CF8F37 /* ViewController.swift in Sources */,
 				CE726E9D237BE38200C99DD2 /* CellDayTemper.swift in Sources */,
+				CE89B23D2385717100BA2442 /* ParsData.swift in Sources */,
 				CE726EAE237C8D8A00C99DD2 /* OneDayForecast.swift in Sources */,
 				CE726EA6237BF30300C99DD2 /* ModelColViewCell.swift in Sources */,
 				CEEB0C142371EE0E00CF8F37 /* AppDelegate.swift in Sources */,
-				CE726EA9237C88BB00C99DD2 /* ModelOneDayForecast.swift in Sources */,
+				CE726EA9237C88BB00C99DD2 /* ResponsFiveDayForecast.swift in Sources */,
 				CE726EA4237BF29D00C99DD2 /* ModelTVCellSunRS.swift in Sources */,
 				CE726E9F237BE49B00C99DD2 /* SunRiseSet.swift in Sources */,
+				CE89B23B23856F6700BA2442 /* ResponsTwentyHoursForecast.swift in Sources */,
+				CE89B2372384706300BA2442 /* ResponsOneDayForecast.swift in Sources */,
+				CE89B22E238187DD00BA2442 /* ExtensionViewContTableVC.swift in Sources */,
 				CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */,
+				CE89B23923856ED900BA2442 /* ResponsCity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

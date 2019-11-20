@@ -9,10 +9,9 @@
 import UIKit
 
 class CellDayTemper: UITableViewCell {
-
-    @IBOutlet weak var dayLable: UILabel!
-    @IBOutlet weak var tMaxLbl: UILabel!
-    @IBOutlet weak var tMinLbl: UILabel!
     
+    @IBOutlet weak var dayTVLabel: UILabel!
+    @IBOutlet weak var tMinLabel: UILabel!
+    @IBOutlet weak var tMaxLabel: UILabel!
     
 }

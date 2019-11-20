@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
 
     var arrayTime = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
     
@@ -16,7 +18,7 @@ class ViewController: UIViewController {
            ModelTVCellSunRS(sunRise: "SunRise", sRTime: "4.53", sunSet: "SunSet", sSTime: "3.56")
            ] {
            didSet {
-               TableViewDay.reloadData()
+               tableViewDay.reloadData()
            }
        }
 
@@ -30,89 +32,43 @@ class ViewController: UIViewController {
            ModelTVCellDay(dayName: "Saturday", minTemp: 12.0, maxTemp: 11.0)
            ] {
            didSet {
-               TableViewDay.reloadData()
+               tableViewDay.reloadData()
            }
        }
-    
-    @IBOutlet weak var TableViewDay: UITableView!
-    @IBOutlet weak var CollectionViewData: UICollectionView!
+    @IBOutlet weak var tableViewDay: UITableView!
+    @IBOutlet weak var collectionViewDay: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TableViewDay.delegate = self
-        TableViewDay.dataSource = self
+        tableViewDay.delegate = self
+        tableViewDay.dataSource = self
 
-        CollectionViewData.delegate = self
-        CollectionViewData.dataSource = self
+        collectionViewDay.delegate = self
+        collectionViewDay.dataSource = self
+        
+        let oneDayForecast = OneDayForecast()
+        oneDayForecast.fetchDayForecast(cityKey: 326175, completion: workWithFiveDaysForecastData(_:))
     }
     
+//    unc workWithDailyForecastData(_ data: [TwelveHoursForecastResponse]) -> Void {
+//        responseDataForTwelveHours = data
+//    }
+    var responseDataForFiveDays: ResponsFiveDayForecast? {
+        didSet {
+            tableViewDay.reloadData()
+        }
+    }
+    
+    func workWithFiveDaysForecastData(_ data: ResponsFiveDayForecast) -> Void {
+        responseDataForFiveDays = data
+    }
+
+    func workWithError(_ error: Error) -> Void {
+        print(error)
+    }
+
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        <#code#>
-    }
-    
-    //MARK: - Create sections
-    func numberOfSections(in tableView: UITableView) -> Int {
-           return 2
-       }
-       
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           switch section {
-           case 0:
-               return 7
-           case 1:
-               return 1
-           default:
-               break
-           }
-           return arrDayTemp.count  // 0
-       }
-    
-    //MARK: - create TableViewCell
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            switch indexPath.section {
-            case 0:
-                let firstCell = TableViewDay.dequeueReusableCell(withIdentifier: "cellDayTemper") as! CellDayTemper
 
-                firstCell.dayLable.text = arrDayTemp[indexPath.row].dayName
-                firstCell.tMaxLbl.text = "\(arrDayTemp[indexPath.row].maxTemp)"
-                firstCell.tMinLbl.text = "\(arrDayTemp[indexPath.row].minTemp)"
 
-                return firstCell
-            case 1:
-                let secondCell = TableViewDay.dequeueReusableCell(withIdentifier: "sunRiseSet") as! SunRiseSet
-
-                secondCell.sunRise.text = arrSunRS[indexPath.row].sunRise
-                secondCell.sRTime.text = arrSunRS[indexPath.row].sRTime
-                secondCell.sunSet.text = arrSunRS[indexPath.row].sunSet
-                secondCell.sSTime.text = arrSunRS[indexPath.row].sSTime
-
-                return secondCell
-            default:
-                return UITableViewCell()
-            }
-    }
-}
-
-    //MARK: - create CollectionViewCell
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayTime.count
-    }
-    
-    func collectionView(
-      _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      let collectionViewCell = collectionView
-        .dequeueReusableCell(withReuseIdentifier: "cellCVTemp", for: indexPath)
-      collectionViewCell.backgroundColor = .clear
-      return collectionViewCell
-    }
-    
-}
