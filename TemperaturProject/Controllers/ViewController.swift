@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tempCityNameLabel: UILabel!
     
+    let parsData = ParsData()
+    
     
     // MARK: - DATA SOURCE:
     private var currentTemperature: Double? {
@@ -77,9 +79,9 @@ class ViewController: UIViewController {
             if let dailyForecast = oneDayForecast.dailyForecasts.first {
                 self.currentTemperature = dailyForecast.temperature.maximum.value
                 self.arrSunRS = [ModelTVCellSunRS(sunRise: "Sunrise",
-                                                  sRTime: dailyForecast.sun.rise,
+                                                  sRTime: "\(self.parsData.parsingData(data: dailyForecast.sun.rise).0):\(self.parsData.parsingData(data: dailyForecast.sun.rise).1)",
                                                   sunSet: "Sunset",
-                                                  sSTime: dailyForecast.sun.set)]
+                                                  sSTime: "\(self.parsData.parsingData(data: dailyForecast.sun.set).0):\(self.parsData.parsingData(data: dailyForecast.sun.set).1)")]
             }
         }
     }

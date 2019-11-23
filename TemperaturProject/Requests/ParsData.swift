@@ -8,7 +8,7 @@
 
 import Foundation
 
-class parsData{
+class ParsData{
     func parsingData (data: String) -> (Int, Int, Int) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -24,6 +24,6 @@ class parsData{
 }
 
 //let isoDate = "2019-11-20T07:00:00+02:00"
-//let a = parsData()
+//let a = ParsData()
 //a.parsingData(data: isoDate)
 //print(a.parsingData(data: isoDate).2)
