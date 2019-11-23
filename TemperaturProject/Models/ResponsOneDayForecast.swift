@@ -20,7 +20,7 @@ struct ResponsOneDayForecast: Decodable {
 // MARK: - DailyForecastOne
 struct DailyForecastOne: Decodable {
     let date: String
-    let sun: SunOne
+    let sun: Sun
     let temperature: TemperatureOne
     
     
@@ -32,13 +32,13 @@ struct DailyForecastOne: Decodable {
 }
 
 // MARK: - SunOne
-struct SunOne: Decodable {
+struct Sun: Decodable {
     let rise: String
-    let sunSet: String
+    let set: String
     
     enum CodingKeys: String, CodingKey {
         case rise = "Rise"
-        case sunSet = "Set"
+        case set = "Set"
     }
 }
 

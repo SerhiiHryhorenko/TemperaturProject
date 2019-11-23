@@ -8,14 +8,13 @@
 
 import Foundation
 
-class OneDayForecast {
-    let apiKey = APIKey()
+class OneDayForecastService {
     var cityKey = "326175"
     
     
-    func fetchDayForecast(cityKey: Int, details: Bool = false, metric: Bool = false, completion: @escaping(ResponsFiveDayForecast) -> Void) {
+    func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsOneDayForecast) -> Void) {
 
-        let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/1day/\(cityKey)?apikey=\(apiKey)&details=\(details)&metric=\(metric)"
+        let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/1day/\(cityKey)?apikey=\(apikey)&details=\(details)&metric=\(metric)"
         guard let url = URL(string: urlString) else { return }
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -28,12 +27,10 @@ class OneDayForecast {
             decoder.dateDecodingStrategy = .iso8601
 
             do {
-                let dayForecast = try JSONDecoder().decode(ResponsFiveDayForecast.self, from: data)
-                DispatchQueue.main.async {
-                    completion(dayForecast)
-                }
+                let dayForecast = try JSONDecoder().decode(ResponsOneDayForecast.self, from: data)
+                completion(dayForecast)
             } catch let error {
-                print("DayForecast decoding error:\(error.localizedDescription)")
+                print("DayForecast decoding error: \(error.localizedDescription)")
             }
         }.resume()
     }

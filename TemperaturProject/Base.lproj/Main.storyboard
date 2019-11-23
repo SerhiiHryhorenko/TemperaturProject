@@ -247,8 +247,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="9ya-Al-KRU"/>
                     <connections>
+                        <outlet property="cityNameLabel" destination="0TK-Pg-Rfr" id="n1n-OF-CLy"/>
                         <outlet property="collectionViewDay" destination="6CS-mw-qkQ" id="0UW-ge-cfR"/>
                         <outlet property="tableViewDay" destination="4hD-bt-tiu" id="utN-tM-zZG"/>
+                        <outlet property="tempCityNameLabel" destination="g6X-si-iYG" id="Qg2-G3-HLm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,6 +7,5 @@
 //
 
 import Foundation
-class APIKey{
-    let apiKey = "Het3Nj1BBlxighY7eafPBkwGEEuHUq7f"
-}
+
+

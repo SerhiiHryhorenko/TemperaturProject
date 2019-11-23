@@ -8,6 +8,9 @@
 
 import UIKit
 
+let apikey = "DD88l3LYERLRIDfPjaSGXsMlcG0yWtoK"
+let apiKey2 = "Het3Nj1BBlxighY7eafPBkwGEEuHUq7f"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

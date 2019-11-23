@@ -17,5 +17,18 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource {
         let searchCell = tableView.dequeueReusableCell(withIdentifier: "cellSerchTabView")!
 
             return searchCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        if let searchCell = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? ViewController
+        {
+
+            // mainVC.updateView(with: newLocationKey) -- create your update function
+
+            navigationController?.popToRootViewController(animated: false)
         }
+    }
 }
