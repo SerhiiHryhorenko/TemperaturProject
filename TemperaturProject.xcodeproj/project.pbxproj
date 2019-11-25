@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE407B992389B0700009E3A9 /* FiveDayForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE407B982389B0700009E3A9 /* FiveDayForecastService.swift */; };
+		CE407B9B2389C7ED0009E3A9 /* CellCollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE407B9A2389C7ED0009E3A9 /* CellCollView.swift */; };
+		CE407B9D2389CB300009E3A9 /* ModelCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE407B9C2389CB2F0009E3A9 /* ModelCVCell.swift */; };
+		CE407B9F238ADA7A0009E3A9 /* TwentyHoursForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE407B9E238ADA7A0009E3A9 /* TwentyHoursForecastService.swift */; };
 		CE726E9D237BE38200C99DD2 /* CellDayTemper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */; };
 		CE726E9F237BE49B00C99DD2 /* SunRiseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */; };
 		CE726EA2237BF27600C99DD2 /* ModelTVCellDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */; };
@@ -33,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		CE407B982389B0700009E3A9 /* FiveDayForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayForecastService.swift; sourceTree = "<group>"; };
+		CE407B9A2389C7ED0009E3A9 /* CellCollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCollView.swift; sourceTree = "<group>"; };
+		CE407B9C2389CB2F0009E3A9 /* ModelCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCVCell.swift; sourceTree = "<group>"; };
+		CE407B9E238ADA7A0009E3A9 /* TwentyHoursForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentyHoursForecastService.swift; sourceTree = "<group>"; };
 		CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDayTemper.swift; sourceTree = "<group>"; };
 		CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunRiseSet.swift; sourceTree = "<group>"; };
 		CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTVCellDay.swift; sourceTree = "<group>"; };
@@ -69,13 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE726EA0237BE59C00C99DD2 /* ClassesTVCell */ = {
+		CE726EA0237BE59C00C99DD2 /* ClassesCells */ = {
 			isa = PBXGroup;
 			children = (
 				CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */,
 				CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */,
+				CE407B9A2389C7ED0009E3A9 /* CellCollView.swift */,
 			);
-			path = ClassesTVCell;
+			path = ClassesCells;
 			sourceTree = "<group>";
 		};
 		CE726EA7237BF31100C99DD2 /* Models */ = {
@@ -83,6 +90,7 @@
 			children = (
 				CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */,
 				CE726EA3237BF29C00C99DD2 /* ModelTVCellSunRS.swift */,
+				CE407B9C2389CB2F0009E3A9 /* ModelCVCell.swift */,
 				CE89B23823856ED900BA2442 /* ResponsCity.swift */,
 				CE89B23A23856F6600BA2442 /* ResponsTwentyHoursForecast.swift */,
 				CE89B2362384706300BA2442 /* ResponsOneDayForecast.swift */,
@@ -97,6 +105,7 @@
 				CE726EAA237C89EE00C99DD2 /* ApiKey.swift */,
 				CE726EAD237C8D8A00C99DD2 /* OneDayForecastService.swift */,
 				CE407B982389B0700009E3A9 /* FiveDayForecastService.swift */,
+				CE407B9E238ADA7A0009E3A9 /* TwentyHoursForecastService.swift */,
 				CE89B23C2385717100BA2442 /* ParsData.swift */,
 			);
 			path = Requests;
@@ -138,7 +147,7 @@
 				CE89B2442386B80000BA2442 /* Controllers */,
 				CE726EAC237C8D4A00C99DD2 /* Requests */,
 				CE726EA7237BF31100C99DD2 /* Models */,
-				CE726EA0237BE59C00C99DD2 /* ClassesTVCell */,
+				CE726EA0237BE59C00C99DD2 /* ClassesCells */,
 				CEEB0C192371EE0E00CF8F37 /* Main.storyboard */,
 				CEEB0C1C2371EE1100CF8F37 /* Assets.xcassets */,
 				CEEB0C1E2371EE1100CF8F37 /* LaunchScreen.storyboard */,
@@ -228,11 +237,14 @@
 				CEEB0C142371EE0E00CF8F37 /* AppDelegate.swift in Sources */,
 				CE726EA9237C88BB00C99DD2 /* ResponsFiveDayForecast.swift in Sources */,
 				CE726EA4237BF29D00C99DD2 /* ModelTVCellSunRS.swift in Sources */,
+				CE407B9B2389C7ED0009E3A9 /* CellCollView.swift in Sources */,
 				CE726E9F237BE49B00C99DD2 /* SunRiseSet.swift in Sources */,
+				CE407B9F238ADA7A0009E3A9 /* TwentyHoursForecastService.swift in Sources */,
 				CE89B2412385DAA000BA2442 /* ExtensionSearchViewContTableVC.swift in Sources */,
 				CE89B23B23856F6700BA2442 /* ResponsTwentyHoursForecast.swift in Sources */,
 				CE89B24323868C6900BA2442 /* SerchViewControler.swift in Sources */,
 				CE89B2372384706300BA2442 /* ResponsOneDayForecast.swift in Sources */,
+				CE407B9D2389CB300009E3A9 /* ModelCVCell.swift in Sources */,
 				CE89B22E238187DD00BA2442 /* ExtensionViewContTableVC.swift in Sources */,
 				CE407B992389B0700009E3A9 /* FiveDayForecastService.swift in Sources */,
 				CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */,

@@ -10,10 +10,6 @@ import UIKit
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        <#code#>
-//    }
-    
     //MARK: - Create sections
     func numberOfSections(in tableView: UITableView) -> Int {
            return 2
@@ -23,7 +19,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         switch section {
            case 0:
-               return 7
+               return 5
            case 1:
                return 1
            default:
@@ -40,23 +36,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             switch indexPath.section {
                 //
             case 0:
-                
-//                let temp = TemperatureOne(minimum: <#T##ImumOne#>, maximum: <#T##ImumOne#>)
-//                print (temp.maximum)
-
-                
-                //                guard let firstCell = tableViewDay.dequeueReusableCell(withIdentifier: "cellDayTemper") as? CellDayTemper
-//                    let data = responseDataForFiveDays?.dailyForecasts[indexPath.row]
-//                    else {
-//                        return UITableViewCell()
-//                    }
-                
                 let firstCell = tableViewDay.dequeueReusableCell(withIdentifier: "cellDayTemper") as! CellDayTemper
                 firstCell.dayTVLabel.text = arrDayTemp[indexPath.row].dayName
                 firstCell.tMaxLabel.text = "\(arrDayTemp[indexPath.row].maxTemp)"
                 firstCell.tMinLabel.text = "\(arrDayTemp[indexPath.row].minTemp)"
 
                 return firstCell
+                
             case 1:
                 let secondCell = tableViewDay.dequeueReusableCell(withIdentifier: "sunRiseSet") as! SunRiseSet
 
@@ -66,20 +52,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 secondCell.sSTimeLabel.text = arrSunRS[indexPath.row].sSTime
 
                 return secondCell
+                
             default:
                 return UITableViewCell()
             }
     }
-//}
-//    private func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    guard
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cellDayTemper") as? CustomTableViewCell,
-//        let data = responseDataForFiveDays?.dailyForecasts[indexPath.row]
-//        else {
-//            return UITableViewCell()
-//        }
-//
-//    cell.configure(model: data)
-//    return cell
-//}
+
 }

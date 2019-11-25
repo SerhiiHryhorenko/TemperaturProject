@@ -15,6 +15,7 @@ class OneDayForecastService {
     func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsOneDayForecast) -> Void) {
 
         let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/1day/\(cityKey)?apikey=\(apikey)&details=\(details)&metric=\(metric)"
+        
         guard let url = URL(string: urlString) else { return }
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in

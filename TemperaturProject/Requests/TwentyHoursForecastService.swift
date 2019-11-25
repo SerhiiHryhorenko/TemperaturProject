@@ -1,22 +1,20 @@
 //
-//  FiveDayForecastService.swift
+//  TwentyHoursForecastService.swift
 //  TemperaturProject
 //
-//  Created by Serhii Hryhorenko on 23.11.2019.
+//  Created by Serhii Hryhorenko on 24.11.2019.
 //  Copyright © 2019 Serhii Hryhorenko. All rights reserved.
 //
 
 import Foundation
 
-class FiveDayForecastService {
+class TwentyHoursForecastService {
     var cityKey = "326175"
     
     
-    func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsFiveDayForecast) -> Void) {
+    func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsTwentyHoursForecast) -> Void) {
 
-        //let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/1day/\(cityKey)?apikey=\(apikey)&details=\(details)&metric=\(metric)"
-        
-     let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/326175?apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f&details=true&metric=true"
+     let urlString = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/1-326175_1_AL?apikey=Dw6geMn6cIOKson61Kz4IRgEWTbZpkoJ&details=true&metric=true"
         
         guard let url = URL(string: urlString) else { return }
 
@@ -30,7 +28,7 @@ class FiveDayForecastService {
             decoder.dateDecodingStrategy = .iso8601
 
             do {
-                let dayForecast = try JSONDecoder().decode(ResponsFiveDayForecast.self, from: data)
+                let dayForecast = try JSONDecoder().decode(ResponsTwentyHoursForecast.self, from: data)
                 completion(dayForecast)
                 print(dayForecast)
             } catch let error {
