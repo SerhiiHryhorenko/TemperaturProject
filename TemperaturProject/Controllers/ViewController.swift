@@ -94,7 +94,7 @@ class ViewController: UIViewController {
                                                 maxTemp: dailyForecast5.temperature.maximum.value),
                                 ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
                                 minTemp: dailyForecast5.temperature.minimum.value,
-                                    maxTemp: dailyForecast5.temperature.maximum.value),
+                                maxTemp: dailyForecast5.temperature.maximum.value),
                                 ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
                                 minTemp: dailyForecast5.temperature.minimum.value,
                                 maxTemp: dailyForecast5.temperature.maximum.value),

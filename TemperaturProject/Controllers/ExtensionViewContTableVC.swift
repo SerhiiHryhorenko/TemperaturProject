@@ -10,10 +10,6 @@ import UIKit
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
     //MARK: - Create sections
     func numberOfSections(in tableView: UITableView) -> Int {
            return 2
