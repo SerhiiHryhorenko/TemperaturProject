@@ -18,9 +18,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(
       _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellCVTemp", for: indexPath) as! CellCollView
-        collectionViewCell.hourCVLabel.text = arrayTimeCV[indexPath.row]
-        collectionViewCell.tempCVLabel.text = arrayTemperCV[indexPath.row]
-        collectionViewCell.backgroundColor = .clear
+        collectionViewCell.hourCVLabel.text = "\(String(describing: arrayTimeCV[indexPath.row].first))"
+        collectionViewCell.tempCVLabel.text = "\(arrayTemperCV[indexPath.row])"
+        //collectionViewCell.backgroundColor = .clear
       return collectionViewCell
     }
     

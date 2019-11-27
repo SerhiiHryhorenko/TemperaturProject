@@ -40,6 +40,18 @@ class ViewController: UIViewController {
     
     var arrayTimeCV = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
     var arrayTemperCV = ["12", "12", "12", "12", "12", "12", "12", "12", "11", "11", "10", "10", "10"]
+//    var arrCV: [ModelCVCell] = [ModelCVCell(timeCVCell: "00", tempCVCell: "10"),
+//                              ModelCVCell(timeCVCell: "01", tempCVCell: "11"),
+//                              ModelCVCell(timeCVCell: "02", tempCVCell: "12"),
+//                              ModelCVCell(timeCVCell: "03", tempCVCell: "13"),
+//                              ModelCVCell(timeCVCell: "04", tempCVCell: "14"),
+//                              ModelCVCell(timeCVCell: "05", tempCVCell: "15"),
+//                              ModelCVCell(timeCVCell: "06", tempCVCell: "14"),
+//                              ModelCVCell(timeCVCell: "07", tempCVCell: "15"),
+//                              ModelCVCell(timeCVCell: "08", tempCVCell: "10"),
+//                              ModelCVCell(timeCVCell: "09", tempCVCell: "10"),
+//                              ModelCVCell(timeCVCell: "10", tempCVCell: "10"),
+//                              ModelCVCell(timeCVCell: "11", tempCVCell: "10")]
     
     var arrSunRS: [ModelTVCellSunRS] = [
            ModelTVCellSunRS(sunRise: "SunRise", sRTime: "4.53", sunSet: "SunSet", sSTime: "3.56")
@@ -105,6 +117,7 @@ class ViewController: UIViewController {
                                 minTemp: dailyForecast5.temperature.minimum.value,
                                 maxTemp: dailyForecast5.temperature.maximum.value)]
             }
+
         }
         
         // MARK: - RELOAD DATA CV HOURS TEMPER:

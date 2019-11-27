@@ -42,9 +42,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 //
             case 0:
                 let firstCell = tableViewDay.dequeueReusableCell(withIdentifier: "cellDayTemper") as! CellDayTemper
-                firstCell.dayTVLabel.text = arrDayTemp[indexPath.row].dayName
+                firstCell.dayTVLabel.text = self.arrDayTemp[indexPath.row].dayName
                 firstCell.tMaxLabel.text = "\(arrDayTemp[indexPath.row].maxTemp)"
                 firstCell.tMinLabel.text = "\(arrDayTemp[indexPath.row].minTemp)"
+                
+                
+                //            cell.lab.text = self.fiveDayForecast[indexPath.row]?.date
+                //            cell.la2.text = String(self.fiveDayForecast[indexPath.row]!.temperature.maximum.value)
+                //            cell.label.text = String(self.fiveDayForecast[indexPath.row]!.temperature.minimum.value)
 
                 return firstCell
                 
