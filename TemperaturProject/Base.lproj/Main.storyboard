@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,7 +212,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="hourCVLabel" destination="474-KJ-5nW" id="zIm-Cm-cFY"/>
+                                            <outlet property="hourCVLabel" destination="w6d-ww-bv4" id="1ul-hN-LKE"/>
                                             <outlet property="tempCVLabel" destination="474-KJ-5nW" id="3TV-ya-hui"/>
                                         </connections>
                                     </collectionViewCell>
@@ -253,10 +253,10 @@
             </objects>
             <point key="canvasLocation" x="1795.6521739130437" y="103.79464285714285"/>
         </scene>
-        <!--List City-->
+        <!--List City View Controller-->
         <scene sceneID="KtF-b5-44v">
             <objects>
-                <viewController storyboardIdentifier="ListCity" id="yuu-aE-R33" customClass="ListCity" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListCity" id="yuu-aE-R33" customClass="ListCityViewController" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lgT-U1-VBu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -276,8 +276,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="yuu-aE-R33" id="OkT-07-XIA"/>
-                                    <outlet property="delegate" destination="yuu-aE-R33" id="tO4-sB-hwv"/>
+                                    <outlet property="dataSource" destination="yuu-aE-R33" id="Xxv-PH-4MV"/>
+                                    <outlet property="delegate" destination="yuu-aE-R33" id="kXb-Qd-D6J"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -303,7 +303,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="myTableView" destination="rmM-hu-ebO" id="ql6-m1-qTp"/>
+                        <outlet property="myTableView" destination="rmM-hu-ebO" id="8r1-3M-798"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fd2-hh-pff" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

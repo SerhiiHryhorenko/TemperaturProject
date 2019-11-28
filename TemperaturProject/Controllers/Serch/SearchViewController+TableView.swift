@@ -10,6 +10,7 @@ import UIKit
 
 extension SerchViewControler: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // TODO: get rid of magic numbers
         return 10
     }
     
@@ -23,7 +24,7 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        if let searchCell = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? ViewController
+        if let searchCell = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
         {
 
             // mainVC.updateView(with: newLocationKey) -- create your update function

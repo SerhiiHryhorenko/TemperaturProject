@@ -8,12 +8,12 @@
 
 import Foundation
 
-class ParsData{
-    func parsingData (data: String) -> (Int, Int, String) {
+class DateParser {
+    static func parsDate(_ dateStr: String) -> (hour: Int, minute: Int, day: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-        let formattedDate = dateFormatter.date(from: data)!
+        let formattedDate = dateFormatter.date(from: dateStr)!
         let calendar = Calendar.current
         let minutes = calendar.component(.minute, from: formattedDate)
         let hours = calendar.component(.hour, from: formattedDate)

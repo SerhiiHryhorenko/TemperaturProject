@@ -10,7 +10,7 @@ import Foundation
 
 struct City: Decodable {
     let key: String
-    //"Key": "1-326175_1_AL"
+    //"Key": "326175"
     enum CodingKeys: String, CodingKey {
         case key = "Key"
     }

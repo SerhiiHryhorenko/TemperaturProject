@@ -11,7 +11,7 @@
 		CE407B9B2389C7ED0009E3A9 /* CellCollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE407B9A2389C7ED0009E3A9 /* CellCollView.swift */; };
 		CE407B9D2389CB300009E3A9 /* ModelCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE407B9C2389CB2F0009E3A9 /* ModelCVCell.swift */; };
 		CE407B9F238ADA7A0009E3A9 /* TwentyHoursForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE407B9E238ADA7A0009E3A9 /* TwentyHoursForecastService.swift */; };
-		CE407BD1238DDD450009E3A9 /* ListCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE407BD0238DDD450009E3A9 /* ListCity.swift */; };
+		CE627E232390346500FE9E12 /* ListCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE627E222390346500FE9E12 /* ListCityViewController.swift */; };
 		CE726E9D237BE38200C99DD2 /* CellDayTemper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */; };
 		CE726E9F237BE49B00C99DD2 /* SunRiseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */; };
 		CE726EA2237BF27600C99DD2 /* ModelTVCellDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */; };
@@ -19,17 +19,16 @@
 		CE726EA9237C88BB00C99DD2 /* ResponsFiveDayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EA8237C88BB00C99DD2 /* ResponsFiveDayForecast.swift */; };
 		CE726EAB237C89EE00C99DD2 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EAA237C89EE00C99DD2 /* ApiKey.swift */; };
 		CE726EAE237C8D8A00C99DD2 /* OneDayForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE726EAD237C8D8A00C99DD2 /* OneDayForecastService.swift */; };
-		CE89B22E238187DD00BA2442 /* ExtensionViewContTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B22D238187DD00BA2442 /* ExtensionViewContTableVC.swift */; };
-		CE89B2302381888F00BA2442 /* extensionViewConCollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B22F2381888F00BA2442 /* extensionViewConCollVC.swift */; };
+		CE89B22E238187DD00BA2442 /* MainViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B22D238187DD00BA2442 /* MainViewController+TableView.swift */; };
 		CE89B2372384706300BA2442 /* ResponsOneDayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B2362384706300BA2442 /* ResponsOneDayForecast.swift */; };
 		CE89B23923856ED900BA2442 /* ResponsCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B23823856ED900BA2442 /* ResponsCity.swift */; };
 		CE89B23B23856F6700BA2442 /* ResponsTwentyHoursForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B23A23856F6600BA2442 /* ResponsTwentyHoursForecast.swift */; };
-		CE89B23D2385717100BA2442 /* ParsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B23C2385717100BA2442 /* ParsData.swift */; };
-		CE89B2412385DAA000BA2442 /* ExtensionSearchViewContTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B2402385DAA000BA2442 /* ExtensionSearchViewContTableVC.swift */; };
+		CE89B23D2385717100BA2442 /* DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B23C2385717100BA2442 /* DateParser.swift */; };
+		CE89B2412385DAA000BA2442 /* SearchViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B2402385DAA000BA2442 /* SearchViewController+TableView.swift */; };
 		CE89B24323868C6900BA2442 /* SerchViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B24223868C6900BA2442 /* SerchViewControler.swift */; };
 		CEEB0C142371EE0E00CF8F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */; };
 		CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */; };
-		CEEB0C182371EE0E00CF8F37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C172371EE0E00CF8F37 /* ViewController.swift */; };
+		CEEB0C182371EE0E00CF8F37 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C172371EE0E00CF8F37 /* MainViewController.swift */; };
 		CEEB0C1B2371EE0E00CF8F37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEB0C192371EE0E00CF8F37 /* Main.storyboard */; };
 		CEEB0C1D2371EE1100CF8F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEB0C1C2371EE1100CF8F37 /* Assets.xcassets */; };
 		CEEB0C202371EE1100CF8F37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEB0C1E2371EE1100CF8F37 /* LaunchScreen.storyboard */; };
@@ -40,7 +39,7 @@
 		CE407B9A2389C7ED0009E3A9 /* CellCollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCollView.swift; sourceTree = "<group>"; };
 		CE407B9C2389CB2F0009E3A9 /* ModelCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCVCell.swift; sourceTree = "<group>"; };
 		CE407B9E238ADA7A0009E3A9 /* TwentyHoursForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentyHoursForecastService.swift; sourceTree = "<group>"; };
-		CE407BD0238DDD450009E3A9 /* ListCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListCity.swift; path = "../../../../Downloads/TemperaturProject-dev 3/TemperaturProject/Controllers/ListCity.swift"; sourceTree = "<group>"; };
+		CE627E222390346500FE9E12 /* ListCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCityViewController.swift; sourceTree = "<group>"; };
 		CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDayTemper.swift; sourceTree = "<group>"; };
 		CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunRiseSet.swift; sourceTree = "<group>"; };
 		CE726EA1237BF27600C99DD2 /* ModelTVCellDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTVCellDay.swift; sourceTree = "<group>"; };
@@ -48,18 +47,17 @@
 		CE726EA8237C88BB00C99DD2 /* ResponsFiveDayForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsFiveDayForecast.swift; sourceTree = "<group>"; };
 		CE726EAA237C89EE00C99DD2 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		CE726EAD237C8D8A00C99DD2 /* OneDayForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayForecastService.swift; sourceTree = "<group>"; };
-		CE89B22D238187DD00BA2442 /* ExtensionViewContTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewContTableVC.swift; sourceTree = "<group>"; };
-		CE89B22F2381888F00BA2442 /* extensionViewConCollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionViewConCollVC.swift; sourceTree = "<group>"; };
+		CE89B22D238187DD00BA2442 /* MainViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableView.swift"; sourceTree = "<group>"; };
 		CE89B2362384706300BA2442 /* ResponsOneDayForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsOneDayForecast.swift; sourceTree = "<group>"; };
 		CE89B23823856ED900BA2442 /* ResponsCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsCity.swift; sourceTree = "<group>"; };
 		CE89B23A23856F6600BA2442 /* ResponsTwentyHoursForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsTwentyHoursForecast.swift; sourceTree = "<group>"; };
-		CE89B23C2385717100BA2442 /* ParsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsData.swift; sourceTree = "<group>"; };
-		CE89B2402385DAA000BA2442 /* ExtensionSearchViewContTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSearchViewContTableVC.swift; sourceTree = "<group>"; };
+		CE89B23C2385717100BA2442 /* DateParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateParser.swift; sourceTree = "<group>"; };
+		CE89B2402385DAA000BA2442 /* SearchViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+TableView.swift"; sourceTree = "<group>"; };
 		CE89B24223868C6900BA2442 /* SerchViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchViewControler.swift; sourceTree = "<group>"; };
 		CEEB0C102371EE0E00CF8F37 /* TemperaturProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemperaturProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CEEB0C172371EE0E00CF8F37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEEB0C172371EE0E00CF8F37 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CEEB0C1A2371EE0E00CF8F37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEEB0C1C2371EE1100CF8F37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEEB0C1F2371EE1100CF8F37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,6 +75,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE407BD2239032510009E3A9 /* ListCity */ = {
+			isa = PBXGroup;
+			children = (
+				CE627E222390346500FE9E12 /* ListCityViewController.swift */,
+			);
+			path = ListCity;
+			sourceTree = "<group>";
+		};
+		CE407BD4239032840009E3A9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB0C172371EE0E00CF8F37 /* MainViewController.swift */,
+				CE89B22D238187DD00BA2442 /* MainViewController+TableView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CE407BD5239032970009E3A9 /* Serch */ = {
+			isa = PBXGroup;
+			children = (
+				CE89B2402385DAA000BA2442 /* SearchViewController+TableView.swift */,
+				CE89B24223868C6900BA2442 /* SerchViewControler.swift */,
+			);
+			path = Serch;
+			sourceTree = "<group>";
+		};
 		CE726EA0237BE59C00C99DD2 /* ClassesCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +132,7 @@
 				CE726EAD237C8D8A00C99DD2 /* OneDayForecastService.swift */,
 				CE407B982389B0700009E3A9 /* FiveDayForecastService.swift */,
 				CE407B9E238ADA7A0009E3A9 /* TwentyHoursForecastService.swift */,
-				CE89B23C2385717100BA2442 /* ParsData.swift */,
+				CE89B23C2385717100BA2442 /* DateParser.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -116,12 +140,9 @@
 		CE89B2442386B80000BA2442 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE89B24223868C6900BA2442 /* SerchViewControler.swift */,
-				CEEB0C172371EE0E00CF8F37 /* ViewController.swift */,
-				CE407BD0238DDD450009E3A9 /* ListCity.swift */,
-				CE89B22F2381888F00BA2442 /* extensionViewConCollVC.swift */,
-				CE89B22D238187DD00BA2442 /* ExtensionViewContTableVC.swift */,
-				CE89B2402385DAA000BA2442 /* ExtensionSearchViewContTableVC.swift */,
+				CE407BD4239032840009E3A9 /* Main */,
+				CE407BD5239032970009E3A9 /* Serch */,
+				CE407BD2239032510009E3A9 /* ListCity */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -232,10 +253,10 @@
 			files = (
 				CE726EAB237C89EE00C99DD2 /* ApiKey.swift in Sources */,
 				CE726EA2237BF27600C99DD2 /* ModelTVCellDay.swift in Sources */,
-				CE89B2302381888F00BA2442 /* extensionViewConCollVC.swift in Sources */,
-				CEEB0C182371EE0E00CF8F37 /* ViewController.swift in Sources */,
+				CE627E232390346500FE9E12 /* ListCityViewController.swift in Sources */,
+				CEEB0C182371EE0E00CF8F37 /* MainViewController.swift in Sources */,
 				CE726E9D237BE38200C99DD2 /* CellDayTemper.swift in Sources */,
-				CE89B23D2385717100BA2442 /* ParsData.swift in Sources */,
+				CE89B23D2385717100BA2442 /* DateParser.swift in Sources */,
 				CE726EAE237C8D8A00C99DD2 /* OneDayForecastService.swift in Sources */,
 				CEEB0C142371EE0E00CF8F37 /* AppDelegate.swift in Sources */,
 				CE726EA9237C88BB00C99DD2 /* ResponsFiveDayForecast.swift in Sources */,
@@ -243,13 +264,12 @@
 				CE407B9B2389C7ED0009E3A9 /* CellCollView.swift in Sources */,
 				CE726E9F237BE49B00C99DD2 /* SunRiseSet.swift in Sources */,
 				CE407B9F238ADA7A0009E3A9 /* TwentyHoursForecastService.swift in Sources */,
-				CE89B2412385DAA000BA2442 /* ExtensionSearchViewContTableVC.swift in Sources */,
+				CE89B2412385DAA000BA2442 /* SearchViewController+TableView.swift in Sources */,
 				CE89B23B23856F6700BA2442 /* ResponsTwentyHoursForecast.swift in Sources */,
 				CE89B24323868C6900BA2442 /* SerchViewControler.swift in Sources */,
 				CE89B2372384706300BA2442 /* ResponsOneDayForecast.swift in Sources */,
-				CE407BD1238DDD450009E3A9 /* ListCity.swift in Sources */,
 				CE407B9D2389CB300009E3A9 /* ModelCVCell.swift in Sources */,
-				CE89B22E238187DD00BA2442 /* ExtensionViewContTableVC.swift in Sources */,
+				CE89B22E238187DD00BA2442 /* MainViewController+TableView.swift in Sources */,
 				CE407B992389B0700009E3A9 /* FiveDayForecastService.swift in Sources */,
 				CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */,
 				CE89B23923856ED900BA2442 /* ResponsCity.swift in Sources */,

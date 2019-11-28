@@ -12,7 +12,7 @@ class TwentyHoursForecastService {
     var cityKey = "326175"
     
     
-    func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsTwentyHoursForecast) -> Void) {
+    func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping ([ResponsTwentyHoursForecast]) -> Void) {
 
      let urlString = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/326175?apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f&details=true&metric=true"
         
@@ -28,7 +28,7 @@ class TwentyHoursForecastService {
             decoder.dateDecodingStrategy = .iso8601
 
             do {
-                let dayForecast = try JSONDecoder().decode(ResponsTwentyHoursForecast.self, from: data)
+                let dayForecast = try JSONDecoder().decode([ResponsTwentyHoursForecast].self, from: data)
                 completion(dayForecast)
                 print(dayForecast)
             } catch let error {
