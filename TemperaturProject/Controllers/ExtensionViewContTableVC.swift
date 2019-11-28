@@ -24,9 +24,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         switch section {
            case 0:
-               return 5
+            return arrDayTemp.count
            case 1:
-               return 1
+            return arrSunRS.count
            default:
                break
            }

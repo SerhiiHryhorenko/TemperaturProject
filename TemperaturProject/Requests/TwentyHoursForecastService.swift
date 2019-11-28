@@ -14,7 +14,7 @@ class TwentyHoursForecastService {
     
     func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsTwentyHoursForecast) -> Void) {
 
-     let urlString = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/1-326175_1_AL?apikey=Dw6geMn6cIOKson61Kz4IRgEWTbZpkoJ&details=true&metric=true"
+     let urlString = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/326175?apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f&details=true&metric=true"
         
         guard let url = URL(string: urlString) else { return }
 

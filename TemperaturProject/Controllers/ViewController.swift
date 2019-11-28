@@ -53,26 +53,18 @@ class ViewController: UIViewController {
 //                              ModelCVCell(timeCVCell: "10", tempCVCell: "10"),
 //                              ModelCVCell(timeCVCell: "11", tempCVCell: "10")]
     
-    var arrSunRS: [ModelTVCellSunRS] = [
-           ModelTVCellSunRS(sunRise: "SunRise", sRTime: "4.53", sunSet: "SunSet", sSTime: "3.56")
-           ] {
+    var arrSunRS: [ModelTVCellSunRS] = [] {
         didSet {
             DispatchQueue.main.async {
-                self.tableViewDay.reloadSections(IndexSet(arrayLiteral: 1), with: UITableView.RowAnimation.automatic)
+                self.tableViewDay.reloadData()
             }
         }
        }
 
-       var arrDayTemp: [ModelTVCellDay] = [
-           ModelTVCellDay(dayName: "Tuesday", minTemp: 12.0, maxTemp: 11.0),
-           ModelTVCellDay(dayName: "Wensday", minTemp: 12.0, maxTemp: 11.0),
-           ModelTVCellDay(dayName: "Thursday", minTemp: 12.0, maxTemp: 11.0),
-           ModelTVCellDay(dayName: "Friday", minTemp: 12.0, maxTemp: 11.0),
-           ModelTVCellDay(dayName: "Saturday", minTemp: 12.0, maxTemp: 11.0)
-           ] {
+       var arrDayTemp: [ModelTVCellDay] = [] {
            didSet {
                DispatchQueue.main.async {
-                   self.tableViewDay.reloadSections(IndexSet(arrayLiteral: 0), with: UITableView.RowAnimation.automatic)
+                   self.tableViewDay.reloadData()
                }
            }
        }
@@ -100,38 +92,23 @@ class ViewController: UIViewController {
         // MARK: - RELOAD DATA TV DAY TEMPER:
         fiveDayForecastService.fetchDayForecast(cityKey: 326175) { (fiveDayForecast) in
             print(fiveDayForecast)
-            if let dailyForecast5 = fiveDayForecast.dailyForecasts.first {
-                self.arrDayTemp = [ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
-                                                minTemp: dailyForecast5.temperature.minimum.value,
-                                                maxTemp: dailyForecast5.temperature.maximum.value),
-                                ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
-                                minTemp: dailyForecast5.temperature.minimum.value,
-                                maxTemp: dailyForecast5.temperature.maximum.value),
-                                ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
-                                minTemp: dailyForecast5.temperature.minimum.value,
-                                maxTemp: dailyForecast5.temperature.maximum.value),
-                                ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
-                                minTemp: dailyForecast5.temperature.minimum.value,
-                                maxTemp: dailyForecast5.temperature.maximum.value),
-                                ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
-                                minTemp: dailyForecast5.temperature.minimum.value,
-                                maxTemp: dailyForecast5.temperature.maximum.value)]
+            for dailyForecast5 in fiveDayForecast.dailyForecasts {
+                self.arrDayTemp.append(ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
+                    minTemp: dailyForecast5.temperature.minimum.value,
+                    maxTemp: dailyForecast5.temperature.maximum.value))
             }
-
         }
         
         // MARK: - RELOAD DATA CV HOURS TEMPER:
 //        twentyHoursForecastService.fetchDayForecast(cityKey: 326175) { (twentyHoursForecast) in
-//                   print(twentyHoursForecast)
-//            if let dailyForecast12 = twentyHoursForecast.dailyForecasts {
-//                       self.arrSunRS = [ModelTVCellSunRS(sunRise: "Sunrise",
-//                                                         sRTime: "\(self.parsData.parsingData(data: dailyForecast.sun.rise).0):\(self.parsData.parsingData(data: dailyForecast.sun.rise).1)",
-//                                                         sunSet: "Sunset",
-//                                                         sSTime: "\(self.parsData.parsingData(data: dailyForecast.sun.set).0):\(self.parsData.parsingData(data: dailyForecast.sun.set).1)")]
-//                   }
-        
-        
-    }
+//            print(twentyHoursForecast)
+//            for dailyForecast5 in twentyHoursForecast.dailyForecasts {
+//                self.arrDayTemp.append(ModelTVCellDay(dayName: "\(self.parsData.parsingData(data: dailyForecast5.date).2)",
+//                    minTemp: dailyForecast5.temperature.minimum.value,
+//                    maxTemp: dailyForecast5.temperature.maximum.value))
+//            }
+//    }
+        }
     
 //    unc workWithDailyForecastData(_ data: [TwelveHoursForecastResponse]) -> Void {
 //        responseDataForTwelveHours = data
@@ -146,6 +123,4 @@ class ViewController: UIViewController {
     }
 
 }
-
-
 

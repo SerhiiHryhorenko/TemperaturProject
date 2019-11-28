@@ -11,7 +11,6 @@ import Foundation
 class FiveDayForecastService {
     var cityKey = "326175"
     
-    
     func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsFiveDayForecast) -> Void) {
 
         let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/\(cityKey)?apikey=\(apikey)&details=\(details)&metric=\(metric)"
@@ -32,7 +31,7 @@ class FiveDayForecastService {
             do {
                 let dayForecast = try JSONDecoder().decode(ResponsFiveDayForecast.self, from: data)
                 completion(dayForecast)
-                print(dayForecast)
+                //print(dayForecast)
             } catch let error {
                 print("DayForecast decoding error: \(error.localizedDescription)")
             }
