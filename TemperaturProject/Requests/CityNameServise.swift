@@ -30,7 +30,7 @@ class CityNameService {
 
                     do {
                         let city = try JSONDecoder().decode(ResponsCityName.self, from: data)
-                        completion(city.localizedName)
+                        completion(city)
 
                     } catch let error {
                         print("CityName decoding error: \(error.localizedDescription)")
