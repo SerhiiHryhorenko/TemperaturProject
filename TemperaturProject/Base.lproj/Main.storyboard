@@ -190,6 +190,9 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6d-ww-bv4">
                                                     <rect key="frame" x="22" y="0.0" width="23.5" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="iuQ-Iw-Dcp"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -212,8 +215,8 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="hourCVLabel" destination="w6d-ww-bv4" id="1ul-hN-LKE"/>
-                                            <outlet property="tempCVLabel" destination="474-KJ-5nW" id="3TV-ya-hui"/>
+                                            <outlet property="hourCVLabel" destination="w6d-ww-bv4" id="CXP-yj-Xhq"/>
+                                            <outlet property="tempCVLabel" destination="474-KJ-5nW" id="NT6-8y-Et8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -243,10 +246,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="9ya-Al-KRU"/>
                     <connections>
-                        <outlet property="cityNameLabel" destination="0TK-Pg-Rfr" id="n1n-OF-CLy"/>
-                        <outlet property="collectionViewDay" destination="6CS-mw-qkQ" id="0UW-ge-cfR"/>
-                        <outlet property="tableViewDay" destination="4hD-bt-tiu" id="utN-tM-zZG"/>
-                        <outlet property="tempCityNameLabel" destination="g6X-si-iYG" id="Qg2-G3-HLm"/>
+                        <outlet property="cityNameLabel" destination="0TK-Pg-Rfr" id="rLH-mT-ndk"/>
+                        <outlet property="collectionViewDay" destination="6CS-mw-qkQ" id="skd-6E-1fu"/>
+                        <outlet property="tableViewDay" destination="4hD-bt-tiu" id="s9h-r2-8sE"/>
+                        <outlet property="tempCityNameLabel" destination="g6X-si-iYG" id="OMo-ei-Bek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

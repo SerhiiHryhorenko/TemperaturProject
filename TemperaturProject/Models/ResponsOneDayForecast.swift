@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - ResponsOneDayForecast        dailyForecast.sun.rise
+// MARK: - ResponsOneDayForecast      
 struct ResponsOneDayForecast: Decodable {
     let dailyForecasts: [DailyForecastOne]
     

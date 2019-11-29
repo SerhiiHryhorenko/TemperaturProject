@@ -8,7 +8,6 @@
 
 import Foundation
 
-// MARK: - WelcomeElement
 struct ResponsTwentyHoursForecast: Decodable {
     let dateTime: String
     let temperature: Temperature

@@ -24,7 +24,7 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        if let searchCell = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        if storyboard.instantiateViewController(withIdentifier: "MainViewController") is MainViewController
         {
 
             // mainVC.updateView(with: newLocationKey) -- create your update function

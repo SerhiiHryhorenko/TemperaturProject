@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct City: Decodable {
-    let key: String
-    //"Key": "326175"
+struct ResponsCityName: Decodable {
+    // TODO: lowercase
+    var localizedName: String
+    
     enum CodingKeys: String, CodingKey {
-        case key = "Key"
+        case localizedName = "LocalizedName"
     }
 }
