@@ -83,7 +83,7 @@ class MainViewController: UIViewController {
        
         // MARK: - RELOAD CITY Name:
         cityNameService.fetchCityName(cityKey: locationKey) { (cityName) in
-              self.cityName = cityName
+              self.cityName = cityName 
         }
         
         // MARK: - RELOAD DATA TV SUN RISE_SET:
