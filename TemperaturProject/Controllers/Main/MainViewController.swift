@@ -87,28 +87,28 @@ class MainViewController: UIViewController {
         // -----
         // Get city name:
         // TODO: replace to new! service
-        let urlString = "https://dataservice.accuweather.com/locations/v1/326175?apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f"
-        
-        guard let url = URL(string: urlString) else { return }
-
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                // TODO: description change
-                print("DayForecast URLSession error: \(error.localizedDescription)")
-            }
-            guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-
-            do {
-                let cityName = try JSONDecoder().decode(CityName.self, from: data)
-                self.cityName = cityName.LocalizedName
-//                completion(dayForecast)
-            } catch let error {
-                print("DayForecast decoding error: \(error.localizedDescription)")
-            }
-        }.resume()
+//        let urlString = "https://dataservice.accuweather.com/locations/v1/326175?apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f"
+//
+//        guard let url = URL(string: urlString) else { return }
+//
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            if let error = error {
+//                // TODO: description change
+//                print("DayForecast URLSession error: \(error.localizedDescription)")
+//            }
+//            guard let data = data else { return }
+//
+//            let decoder = JSONDecoder()
+//            decoder.dateDecodingStrategy = .iso8601
+//
+//            do {
+//                let cityName = try JSONDecoder().decode(CityName.self, from: data)
+//                self.cityName = cityName.LocalizedName
+////                completion(dayForecast)
+//            } catch let error {
+//                print("DayForecast decoding error: \(error.localizedDescription)")
+//            }
+//        }.resume()
         // ------
         
         

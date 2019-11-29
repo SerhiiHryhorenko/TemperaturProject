@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct City: Decodable {
+struct ResponsCityName: Decodable {
     let key: String
     //"Key": "326175"
     enum CodingKeys: String, CodingKey {
