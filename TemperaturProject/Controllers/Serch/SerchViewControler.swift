@@ -10,16 +10,28 @@ import UIKit
 
 class SerchViewControler: UIViewController, UISearchResultsUpdating {
     
-    @IBOutlet weak var searchViewController: UITableView!
     
+    @IBOutlet weak var tableSearch: UITableView!
+    
+    
+    var arrayNames = ListCityViewController()
+    var curentArrayNames = ListCityViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setupNavigationBar()
+        setUpCityName()
+
+    }
+    
+    private func setUpCityName() {
         
-        searchViewController.delegate = self
-        searchViewController.dataSource = self
+        for i in arrayNames.array {
+            arrayNames.array.append("cityName \(i)")
+        }
+        
+        curentArrayNames = arrayNames
     }
     
     fileprivate func setupNavigationBar(){
@@ -33,13 +45,15 @@ class SerchViewControler: UIViewController, UISearchResultsUpdating {
         navigationItem.hidesSearchBarWhenScrolling = false
     }
     
+    //let service = CityNameService()
+    
     //MARK: - SerchResultUpdating
     func updateSearchResults(for searchController: UISearchController) {
 //         guard let text = searchController.searchBar.text else { return }
 //
 //               if text.count >= 3 {
 //
-//                   service.fetchCities(text) { searchedCities in
+//                   service.fetchCityName(text) { searchedCities in
 //
 //                       self.cities = searchedCities
 //
@@ -48,8 +62,7 @@ class SerchViewControler: UIViewController, UISearchResultsUpdating {
 //                       }
 //                   }
 //               }
-
-        //print(searchController.searchBar.text)
+//
+//        print(searchController.searchBar.text)
     }
-//https://dataservice.accuweather.com/locations/v1/cities/search?q=Vinnytsya&apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f
 }

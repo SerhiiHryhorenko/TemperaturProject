@@ -11,11 +11,14 @@ import UIKit
 class ListCityViewController  : UIViewController {
 
     @IBOutlet weak var myTableView: UITableView!
-   
+    
+    let city = ResponsCityName(localizedName: "name")
 
     let identifier = "myCell"
     
     var array = ["1", "2", "3", "4", "5"]
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,7 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         let number = array[indexPath.row]
-        cell.textLabel?.text = number
+        cell.textLabel?.text = city.localizedName
         return cell
     }
     //видалення ячейки

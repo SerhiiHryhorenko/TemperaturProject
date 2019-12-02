@@ -78,6 +78,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
@@ -98,7 +99,6 @@ class MainViewController: UIViewController {
                 
                 let sunsetHours = DateParser.parsDate(dailyForecast.sun.set).hour
                 let sunsetMinutes = DateParser.parsDate(dailyForecast.sun.set).minute
-                // TODO: finish
                 let sunsetTime = "\(sunsetHours):\(sunsetMinutes)"
                 
                 let sunInfo = ModelTVCellSunRS(sunRise: "Sunrise", sRTime: sunriseTime, sunSet: "Sunset", sSTime: sunsetTime)

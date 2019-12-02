@@ -27,6 +27,8 @@
 		CE89B23D2385717100BA2442 /* DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B23C2385717100BA2442 /* DateParser.swift */; };
 		CE89B2412385DAA000BA2442 /* SearchViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B2402385DAA000BA2442 /* SearchViewController+TableView.swift */; };
 		CE89B24323868C6900BA2442 /* SerchViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89B24223868C6900BA2442 /* SerchViewControler.swift */; };
+		CE9765BA23939BFF0013E4B4 /* ListCityVievController+SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9765B923939BFF0013E4B4 /* ListCityVievController+SearchResult.swift */; };
+		CE9765BC23944D8B0013E4B4 /* CellCityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9765BB23944D8B0013E4B4 /* CellCityName.swift */; };
 		CEEB0C142371EE0E00CF8F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */; };
 		CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */; };
 		CEEB0C182371EE0E00CF8F37 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB0C172371EE0E00CF8F37 /* MainViewController.swift */; };
@@ -56,6 +58,8 @@
 		CE89B23C2385717100BA2442 /* DateParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateParser.swift; sourceTree = "<group>"; };
 		CE89B2402385DAA000BA2442 /* SearchViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+TableView.swift"; sourceTree = "<group>"; };
 		CE89B24223868C6900BA2442 /* SerchViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchViewControler.swift; sourceTree = "<group>"; };
+		CE9765B923939BFF0013E4B4 /* ListCityVievController+SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCityVievController+SearchResult.swift"; sourceTree = "<group>"; };
+		CE9765BB23944D8B0013E4B4 /* CellCityName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCityName.swift; sourceTree = "<group>"; };
 		CEEB0C102371EE0E00CF8F37 /* TemperaturProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemperaturProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEB0C132371EE0E00CF8F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEB0C152371EE0E00CF8F37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				CE627E222390346500FE9E12 /* ListCityViewController.swift */,
+				CE9765B923939BFF0013E4B4 /* ListCityVievController+SearchResult.swift */,
 			);
 			path = ListCity;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 		CE726EA0237BE59C00C99DD2 /* ClassesCells */ = {
 			isa = PBXGroup;
 			children = (
+				CE9765BB23944D8B0013E4B4 /* CellCityName.swift */,
 				CE726E9C237BE38200C99DD2 /* CellDayTemper.swift */,
 				CE726E9E237BE49B00C99DD2 /* SunRiseSet.swift */,
 				CE407B9A2389C7ED0009E3A9 /* CellCollView.swift */,
@@ -258,6 +264,7 @@
 				CE726EAB237C89EE00C99DD2 /* ApiKey.swift in Sources */,
 				CE726EA2237BF27600C99DD2 /* ModelTVCellDay.swift in Sources */,
 				CE627E232390346500FE9E12 /* ListCityViewController.swift in Sources */,
+				CE9765BC23944D8B0013E4B4 /* CellCityName.swift in Sources */,
 				CEEB0C182371EE0E00CF8F37 /* MainViewController.swift in Sources */,
 				CE726E9D237BE38200C99DD2 /* CellDayTemper.swift in Sources */,
 				CE89B23D2385717100BA2442 /* DateParser.swift in Sources */,
@@ -277,6 +284,7 @@
 				CE407B992389B0700009E3A9 /* FiveDayForecastService.swift in Sources */,
 				CEEB0C162371EE0E00CF8F37 /* SceneDelegate.swift in Sources */,
 				CE89B23923856ED900BA2442 /* ResponsCityName.swift in Sources */,
+				CE9765BA23939BFF0013E4B4 /* ListCityVievController+SearchResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ class CityNameService {
     func fetchCityName(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsCityName) -> Void) {
 
        let urlString = "https://dataservice.accuweather.com/locations/v1/326175?apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f"
-                
+        // ? var citysName = ResponsCityName
                 guard let url = URL(string: urlString) else { return }
 
                 URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -31,6 +31,7 @@ class CityNameService {
                     do {
                         let city = try JSONDecoder().decode(ResponsCityName.self, from: data)
                         completion(city)
+                        print (city.localizedName)
 
                     } catch let error {
                         print("CityName decoding error: \(error.localizedDescription)")

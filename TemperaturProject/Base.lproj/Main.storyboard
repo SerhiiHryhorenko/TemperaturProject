@@ -269,12 +269,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" id="dte-lq-ogG">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" rowHeight="58" id="dte-lq-ogG">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dte-lq-ogG" id="O4S-lz-TsK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZW-73-hLw" customClass="Я">
+                                                    <rect key="frame" x="20" y="19" width="131" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="JZW-73-hLw" secondAttribute="bottom" constant="4" id="RBy-eQ-N4Q"/>
+                                                <constraint firstItem="JZW-73-hLw" firstAttribute="leading" secondItem="O4S-lz-TsK" secondAttribute="leadingMargin" constant="4" id="h4B-Q4-cbX"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="JZW-73-hLw" secondAttribute="trailing" constant="255" id="qq2-R1-biW"/>
+                                                <constraint firstItem="JZW-73-hLw" firstAttribute="top" secondItem="O4S-lz-TsK" secondAttribute="topMargin" constant="8" id="z0J-xM-MdV"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -321,22 +335,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="searchViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2jI-k3-ZlF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="searchViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2jI-k3-ZlF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellSerchTabView" id="u3m-ov-A3u">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellSerchTabView" rowHeight="54" id="u3m-ov-A3u" customClass="CellCityName" customModule="TemperaturProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u3m-ov-A3u" id="9RS-eE-FlS">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u3m-ov-A3u" id="9RS-eE-FlS" customClass="CellCityName" customModule="TemperaturProject" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameCity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dd-Mi-xRx">
+                                                    <rect key="frame" x="16" y="8" width="398" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6dd-Mi-xRx" firstAttribute="top" secondItem="9RS-eE-FlS" secondAttribute="top" constant="8" id="Hq9-de-odl"/>
+                                                <constraint firstAttribute="trailing" secondItem="6dd-Mi-xRx" secondAttribute="trailing" id="q7A-CF-8Me"/>
+                                                <constraint firstItem="6dd-Mi-xRx" firstAttribute="leading" secondItem="9RS-eE-FlS" secondAttribute="leading" constant="16" id="sUd-zr-LWf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameCityLabel" destination="6dd-Mi-xRx" id="FhW-Ej-HpR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="sXx-E8-dku" id="QaJ-61-mvK"/>
-                                    <outlet property="delegate" destination="sXx-E8-dku" id="dKe-7S-ALT"/>
+                                    <outlet property="dataSource" destination="sXx-E8-dku" id="g5s-mZ-9gC"/>
+                                    <outlet property="delegate" destination="sXx-E8-dku" id="yyW-2B-HBc"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -351,7 +381,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BDz-to-CAe"/>
                     <connections>
-                        <outlet property="searchViewController" destination="2jI-k3-ZlF" id="CRe-H9-p9C"/>
+                        <outlet property="tableSearch" destination="2jI-k3-ZlF" id="0ko-Yv-BXa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOM-zB-PK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

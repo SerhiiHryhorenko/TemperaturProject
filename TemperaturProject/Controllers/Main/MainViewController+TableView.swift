@@ -45,7 +45,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - create TableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        //
+
         case 0:
             let firstCell = tableViewDay.dequeueReusableCell(withIdentifier: "cellDayTemper") as! CellDayTemper
             // TODO: rename 'arrDayTemp'
@@ -59,12 +59,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 1:
             let secondCell = tableViewDay.dequeueReusableCell(withIdentifier: "sunRiseSet") as! SunRiseSet
+            //TODO: rename 'arrSunRS'
+            let dailySunRiseSetInfo = arrSunRS[indexPath.row]
             
-            //TODO: add variable for 'arrSunRS[indexPath.row]' and rename 'arrSunRS'
-            secondCell.sunRiseLabel.text = arrSunRS[indexPath.row].sunRise
-            secondCell.sRTimeLabel.text = arrSunRS[indexPath.row].sRTime
-            secondCell.sunSetLabel.text = arrSunRS[indexPath.row].sunSet
-            secondCell.sSTimeLabel.text = arrSunRS[indexPath.row].sSTime
+            secondCell.sunRiseLabel.text = dailySunRiseSetInfo.sunRise
+            secondCell.sRTimeLabel.text = dailySunRiseSetInfo.sRTime
+            secondCell.sunSetLabel.text = dailySunRiseSetInfo.sunSet
+            secondCell.sSTimeLabel.text = dailySunRiseSetInfo.sSTime
             
             return secondCell
             
