@@ -78,6 +78,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

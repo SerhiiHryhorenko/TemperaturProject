@@ -261,7 +261,7 @@
             <objects>
                 <viewController storyboardIdentifier="ListCity" id="yuu-aE-R33" customClass="ListCityViewController" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lgT-U1-VBu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rmM-hu-ebO">
@@ -312,7 +312,7 @@
                                 <action selector="editTable:" destination="yuu-aE-R33" eventType="touchUpInside" id="WKI-2u-IcJ"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="VBV-GF-ZUM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VBV-GF-ZUM">
                             <connections>
                                 <segue destination="sXx-E8-dku" kind="show" id="z42-s1-B1C"/>
                             </connections>
@@ -332,11 +332,11 @@
             <objects>
                 <viewController id="sXx-E8-dku" customClass="SerchViewControler" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="searchTableView" id="ZZe-BC-LiM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="searchViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2jI-k3-ZlF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellSerchTabView" rowHeight="54" id="u3m-ov-A3u" customClass="CellCityName" customModule="TemperaturProject" customModuleProvider="target">
@@ -361,6 +361,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameCityLabel" destination="6dd-Mi-xRx" id="FhW-Ej-HpR"/>
+                                            <segue destination="yuu-aE-R33" kind="show" id="t6e-05-PzJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -408,4 +409,7 @@
             <point key="canvasLocation" x="1042.0289855072465" y="104.46428571428571"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="t6e-05-PzJ"/>
+    </inferredMetricsTieBreakers>
 </document>

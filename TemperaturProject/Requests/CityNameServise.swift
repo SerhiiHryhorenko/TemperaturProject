@@ -14,7 +14,7 @@ class CityNameService {
     
     func fetchCityName(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsCityName) -> Void) {
 
-       let urlString = "https://dataservice.accuweather.com/locations/v1/326175?apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f"
+       let urlString = "https://dataservice.accuweather.com/locations/v1/\(cityKey)?apikey=\(apikey)"
         // ? var citysName = ResponsCityName
                 guard let url = URL(string: urlString) else { return }
 

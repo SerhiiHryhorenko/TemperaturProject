@@ -41,7 +41,7 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
-        let number = array[indexPath.row]
+        //let number = array[indexPath.row]
         cell.textLabel?.text = city.localizedName
         return cell
     }

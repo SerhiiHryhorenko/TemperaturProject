@@ -8,12 +8,21 @@
 
 import UIKit
 
-class SerchViewControler: UIViewController, UISearchResultsUpdating {
-    
-    
+class SerchViewControler: UIViewController {
+
     @IBOutlet weak var tableSearch: UITableView!
     
+    let service = CityNameServiceText()
+    let presenter = ModelSearch()
+    var resultOfRequest = [ResponsSearchResult]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableSearch.reloadData()
+            }
+        }
+    }
     
+    let searchCity = UISearchController(searchResultsController: nil)
     var arrayNames = ListCityViewController()
     var curentArrayNames = ListCityViewController()
     
@@ -21,18 +30,13 @@ class SerchViewControler: UIViewController, UISearchResultsUpdating {
         super.viewDidLoad()
 
         self.setupNavigationBar()
-        setUpCityName()
+        //setUpCityName()
+        searchCity.searchResultsUpdater = self
+        definesPresentationContext = true
+        tableSearch.tableHeaderView = searchCity.searchBar
 
     }
-    
-    private func setUpCityName() {
-        
-        for i in arrayNames.array {
-            arrayNames.array.append("cityName \(i)")
-        }
-        
-        curentArrayNames = arrayNames
-    }
+
     
     fileprivate func setupNavigationBar(){
         self.navigationItem.title = "***"
@@ -47,22 +51,5 @@ class SerchViewControler: UIViewController, UISearchResultsUpdating {
     
     //let service = CityNameService()
     
-    //MARK: - SerchResultUpdating
-    func updateSearchResults(for searchController: UISearchController) {
-//         guard let text = searchController.searchBar.text else { return }
-//
-//               if text.count >= 3 {
-//
-//                   service.fetchCityName(text) { searchedCities in
-//
-//                       self.cities = searchedCities
-//
-//                       DispatchQueue.main.async {
-//                           self.tableView.reloadData()
-//                       }
-//                   }
-//               }
-//
-//        print(searchController.searchBar.text)
-    }
+    
 }
