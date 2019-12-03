@@ -11,7 +11,6 @@ import Foundation
 class CityNameService {
     var cityKey = "326175"
     
-    
     func fetchCityName(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsCityName) -> Void) {
 
        let urlString = "https://dataservice.accuweather.com/locations/v1/\(cityKey)?apikey=\(apikey)"

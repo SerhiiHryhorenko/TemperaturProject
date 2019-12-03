@@ -12,7 +12,7 @@ class CityNameServiceText {
 
     var cityKey = "326175"
     func fetchSearchResult(_ query: String, completion: @escaping ([ResponsSearchResult]) -> ()) {
-        guard let url = URL(string: "https://dataservice.accuweather.com/locations/v1/\(cityKey)?apikey=\(apikey)") else { return }
+        guard let url = URL(string: "https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=\(query)&apikey=\(apikey)") else { return }
 
         URLSession.shared.dataTask(with: url) { data, response, error in
             if error != nil {

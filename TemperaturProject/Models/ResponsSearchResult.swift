@@ -13,16 +13,16 @@ struct ResponsSearchResult: Codable {
     var cityName: String
     var country: CountryName
     
-                            private enum CodingKeys: String, CodingKey {
-                            case key      = "Key"
-                            case cityName = "LocalizedName"
-                            case country  = "Country"
-                            }
+    private enum CodingKeys: String, CodingKey {
+        case key      = "Key"
+        case cityName = "LocalizedName"
+        case country  = "Country"
+    }
 }
 
 struct CountryName: Codable {
     var name: String
-                            private enum CodingKeys: String, CodingKey {
-                            case name = "LocalizedName"
-                            }
+    private enum CodingKeys: String, CodingKey {
+        case name = "LocalizedName"
+    }
 }

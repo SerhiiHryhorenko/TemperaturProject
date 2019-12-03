@@ -26,14 +26,25 @@ class SerchViewControler: UIViewController {
     var arrayNames = ListCityViewController()
     var curentArrayNames = ListCityViewController()
     
+    //MARK: - SearchVC life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.hidesBackButton = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        service.fetchSearchResult(<#T##query: String##String#>) { (<#[ResponsSearchResult]#>) in
+//            <#code#>
+//        }
         self.setupNavigationBar()
         //setUpCityName()
         searchCity.searchResultsUpdater = self
         definesPresentationContext = true
-        tableSearch.tableHeaderView = searchCity.searchBar
+        searchCity.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchCity
 
     }
 
@@ -45,11 +56,6 @@ class SerchViewControler: UIViewController {
         let serchController = UISearchController(searchResultsController: nil)
         serchController.searchResultsUpdater = self
         
-        navigationItem.searchController = serchController
-        navigationItem.hidesSearchBarWhenScrolling = false
     }
-    
     //let service = CityNameService()
-    
-    
 }

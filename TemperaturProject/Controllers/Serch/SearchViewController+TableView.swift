@@ -12,7 +12,7 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISear
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: get rid of magic numbers
-        return curentArrayNames.array.count
+        return resultOfRequest.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,17 +37,14 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISear
               guard let text = searchController.searchBar.text else { return }
               //let text1 = ResponsCityName(localizedName: "")
                 if text.count >= 3 {
-                    presenter.searchService.fetchSearchResult(text) { result in
+                    service.fetchSearchResult(text) { result in
                         self.resultOfRequest = result
                         }
                     } else {
                         self.resultOfRequest.removeAll()
                     }
-
             print(searchController.searchBar.text!)
          }
-        
-        
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 

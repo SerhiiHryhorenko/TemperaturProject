@@ -108,8 +108,8 @@
 		CE407BD5239032970009E3A9 /* Serch */ = {
 			isa = PBXGroup;
 			children = (
-				CE89B2402385DAA000BA2442 /* SearchViewController+TableView.swift */,
 				CE89B24223868C6900BA2442 /* SerchViewControler.swift */,
+				CE89B2402385DAA000BA2442 /* SearchViewController+TableView.swift */,
 			);
 			path = Serch;
 			sourceTree = "<group>";
