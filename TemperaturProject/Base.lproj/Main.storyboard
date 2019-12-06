@@ -12,7 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +165,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="yuu-aE-R33" kind="show" id="fSD-ai-Wk2"/>
+                                    <action selector="pushListVCAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TeP-LT-Dmx"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="CollectionView" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6CS-mw-qkQ">
@@ -259,9 +259,9 @@
         <!--List City View Controller-->
         <scene sceneID="KtF-b5-44v">
             <objects>
-                <viewController storyboardIdentifier="ListCity" id="yuu-aE-R33" customClass="ListCityViewController" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListCityViewController" id="yuu-aE-R33" customClass="ListCityViewController" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lgT-U1-VBu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rmM-hu-ebO">
@@ -275,20 +275,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dte-lq-ogG" id="O4S-lz-TsK">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZW-73-hLw" customClass="Я">
-                                                    <rect key="frame" x="20" y="19" width="131" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="JZW-73-hLw" secondAttribute="bottom" constant="4" id="RBy-eQ-N4Q"/>
-                                                <constraint firstItem="JZW-73-hLw" firstAttribute="leading" secondItem="O4S-lz-TsK" secondAttribute="leadingMargin" constant="4" id="h4B-Q4-cbX"/>
-                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="JZW-73-hLw" secondAttribute="trailing" constant="255" id="qq2-R1-biW"/>
-                                                <constraint firstItem="JZW-73-hLw" firstAttribute="top" secondItem="O4S-lz-TsK" secondAttribute="topMargin" constant="8" id="z0J-xM-MdV"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -314,7 +300,7 @@
                         </button>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VBV-GF-ZUM">
                             <connections>
-                                <segue destination="sXx-E8-dku" kind="show" id="z42-s1-B1C"/>
+                                <action selector="addCity:" destination="yuu-aE-R33" id="a8K-7V-Oqe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -330,13 +316,13 @@
         <!--Serch View Controler-->
         <scene sceneID="iot-dB-MgU">
             <objects>
-                <viewController id="sXx-E8-dku" customClass="SerchViewControler" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SerchViewControler" id="sXx-E8-dku" customClass="SerchViewControler" customModule="TemperaturProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="searchTableView" id="ZZe-BC-LiM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="searchViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2jI-k3-ZlF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellSerchTabView" rowHeight="54" id="u3m-ov-A3u" customClass="CellCityName" customModule="TemperaturProject" customModuleProvider="target">
@@ -346,8 +332,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameCity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dd-Mi-xRx">
-                                                    <rect key="frame" x="16" y="8" width="398" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dd-Mi-xRx">
+                                                    <rect key="frame" x="16" y="8" width="398" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -361,7 +347,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameCityLabel" destination="6dd-Mi-xRx" id="FhW-Ej-HpR"/>
-                                            <segue destination="yuu-aE-R33" kind="show" id="t6e-05-PzJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -387,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOM-zB-PK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3289.8550724637685" y="103.79464285714285"/>
+            <point key="canvasLocation" x="3300" y="104"/>
         </scene>
         <!--Item-->
         <scene sceneID="hU1-1X-fj5">
@@ -409,7 +394,4 @@
             <point key="canvasLocation" x="1042.0289855072465" y="104.46428571428571"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="t6e-05-PzJ"/>
-    </inferredMetricsTieBreakers>
 </document>

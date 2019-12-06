@@ -8,52 +8,84 @@
 
 import UIKit
 
-class ListCityViewController  : UIViewController {
-
+class ListCityViewController: UIViewController {
+    
     @IBOutlet weak var myTableView: UITableView!
     
+    public weak var delegate: MainViewController?
+    
     let city = ResponsCityName(localizedName: "name")
-
     let identifier = "myCell"
     
-    var array = ["1", "2", "3", "4", "5"]
+    var favoriteCities: [ResponsSearchResult] = []
     
+    var selectedCities = ["1", "2", "3", "4", "5"]
+    var selectedCitiesKeys = ["1", "2", "3", "4", "5"]
     let searchController = UISearchController(searchResultsController: nil)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        myTableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-
-    @IBAction func editTable(_ sender: Any) {
-    myTableView.isEditing = !myTableView.isEditing //якщо таблиця не редагується, то редагувати по нажаттюб якщо нажимаємо і вона редагується, то перестати редагувати
+    @IBAction func addCity(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let listVC = storyboard.instantiateViewController(withIdentifier: "SerchViewControler") as? SerchViewControler {
+            listVC.delegate = self
+            navigationController?.pushViewController(listVC, animated: true)
+        }
     }
     
+    @IBAction func editTable(_ sender: Any) {
+        myTableView.isEditing = !myTableView.isEditing //якщо таблиця не редагується, то редагувати по нажаттюб якщо нажимаємо і вона редагується, то перестати редагувати
+    }
+    
+    func selectCityFromSearch(city: ResponsSearchResult) {
+        favoriteCities.append(city)
+        
+    }
 }
 
+
 extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.selectCityFromSearch(city: favoriteCities[indexPath.row])
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
     //показує кількість ячейок в таблиці (розмір масиву)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return favoriteCities.count
     }
     // описується сама ячейка
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        //let number = array[indexPath.row]
-        cell.textLabel?.text = city.localizedName
+        
+        cell.textLabel?.text = favoriteCities[indexPath.row].cityName
+        
         return cell
     }
     //видалення ячейки
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            array.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .left)
+            favoriteCities.remove(at: indexPath.row)
+            
+            tableView.performBatchUpdates({
+                tableView.deleteRows(at: [indexPath], with: .left)
+            })
         }
     }
     
@@ -63,9 +95,9 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let item = array[sourceIndexPath.row]
-        array.remove(at: sourceIndexPath.row)
-        array.insert(item, at: destinationIndexPath.row)
+        let item = favoriteCities[sourceIndexPath.row]
+        favoriteCities.remove(at: sourceIndexPath.row)
+        favoriteCities.insert(item, at: destinationIndexPath.row)
     }
     
     // при довгому нажатті зявляється копі/виріз...

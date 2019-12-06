@@ -16,7 +16,6 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISear
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //guard let searchCell = tableView.dequeueReusableCell(withIdentifier: "cellSerchTabView") as? CellCityName else {return UITableViewCell()}
         let searchCell = tableView.dequeueReusableCell(withIdentifier: "cellSerchTabView", for: indexPath)
         let cities = resultOfRequest[indexPath.row]
         searchCell.textLabel?.text = cities.cityName
@@ -32,33 +31,23 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISear
 //        }
 //    }
         
-         //MARK: - SerchResultUpdating
-         func updateSearchResults(for searchController: UISearchController) {
-              guard let text = searchController.searchBar.text else { return }
-              //let text1 = ResponsCityName(localizedName: "")
-                if text.count >= 3 {
-                    service.fetchSearchResult(text) { result in
-                        self.resultOfRequest = result
-                        }
-                    } else {
-                        self.resultOfRequest.removeAll()
-                    }
-            print(searchController.searchBar.text!)
-         }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        if storyboard.instantiateViewController(withIdentifier: "MainViewController") is MainViewController
-        {
-
-            // mainVC.updateView(with: newLocationKey) -- create your update function
-
-            navigationController?.popToRootViewController(animated: false)
+    //MARK: - SerchResultUpdating
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        if text.count >= 3 {
+            service.fetchSearchResult(text) { result in
+                self.resultOfRequest = result
+            }
+        } else {
+            self.resultOfRequest.removeAll()
         }
+        print(searchController.searchBar.text!)
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.selectCityFromSearch(city: resultOfRequest[indexPath.row])
+        
+        navigationController?.popViewController(animated: true)
+    }
 }
 

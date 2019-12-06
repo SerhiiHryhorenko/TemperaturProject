@@ -121,14 +121,38 @@ class MainViewController: UIViewController {
         // MARK: - RELOAD DATA CV HOURS TEMPER:
         twentyHoursForecastService.fetchDayForecast(cityKey: locationKey) { (twentyHoursForecast) in
             print(twentyHoursForecast)
+            
+            var hours: [String] = []
+            var temperatures: [String] = []
+            
             for dailyForecast12 in twentyHoursForecast {
                 let hour = "\(DateParser.parsDate(dailyForecast12.dateTime).hour)"
                 let timeColView = "\(hour):00"
                 let maxTemperature = "\(dailyForecast12.temperature.value)"
                 
-                self.arrayTimeCV.append(timeColView)
-                self.arrayTemperCV.append(maxTemperature)
+                hours.append(timeColView)
+                temperatures.append(maxTemperature)
             }
+            
+            self.arrayTimeCV = hours
+            self.arrayTemperCV = temperatures
+        }
+    }
+    
+    @IBAction func pushListVCAction(_ sender: Any) {
+        let _ = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        if let mainVC = storyboard!.instantiateViewController(withIdentifier: "ListCityViewController") as? ListCityViewController {
+            mainVC.delegate = self
+            navigationController?.pushViewController(mainVC, animated: true)
+        }
+    }
+    
+    func selectCityFromSearch(city: ResponsSearchResult) {
+        //        cityNameLabel.text = city.cityName
+        if let key = Int(city.key) {
+            locationKey = key
         }
     }
 }

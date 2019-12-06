@@ -23,12 +23,17 @@ class SerchViewControler: UIViewController {
     }
     
     let searchCity = UISearchController(searchResultsController: nil)
-    var arrayNames = ListCityViewController()
-    var curentArrayNames = ListCityViewController()
+    weak var delegate: ListCityViewController?
+    //var curentArrayNames = ListCityViewController()
+    
+    
+    //MARK: - передача данних
+    
     
     //MARK: - SearchVC life cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.isNavigationBarHidden = false
         navigationItem.hidesBackButton = true
         self.tabBarController?.tabBar.isHidden = true
@@ -36,19 +41,15 @@ class SerchViewControler: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        service.fetchSearchResult(<#T##query: String##String#>) { (<#[ResponsSearchResult]#>) in
-//            <#code#>
-//        }
+
         self.setupNavigationBar()
         //setUpCityName()
         searchCity.searchResultsUpdater = self
         definesPresentationContext = true
         searchCity.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchCity
-
     }
 
-    
     fileprivate func setupNavigationBar(){
         self.navigationItem.title = "***"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -57,5 +58,4 @@ class SerchViewControler: UIViewController {
         serchController.searchResultsUpdater = self
         
     }
-    //let service = CityNameService()
 }
