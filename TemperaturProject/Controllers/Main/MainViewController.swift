@@ -28,6 +28,8 @@ class MainViewController: UIViewController {
             }
         }
     }
+    
+    
     var responseDataForFiveDays: ResponsFiveDayForecast? {
         didSet {
             tableViewDay.reloadData()
@@ -43,6 +45,14 @@ class MainViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.cityNameLabel.text = self.cityName
+            }
+        }
+    }
+    
+    private var cityTemper: String? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tempCityNameLabel.text = self.cityTemper
             }
         }
     }
@@ -110,12 +120,14 @@ class MainViewController: UIViewController {
         // MARK: - RELOAD DATA TV DAY TEMPER:
         fiveDayForecastService.fetchDayForecast(cityKey: locationKey) { (fiveDayForecast) in
             print(fiveDayForecast)
+            
+            var arrDayTempNew: [ModelTVCellDay] = []
+            
             for dailyForecast5 in fiveDayForecast.dailyForecasts {
-                // TODO: do like at 67 - 80 lines
-                self.arrDayTemp.append(ModelTVCellDay(dayName: "\(DateParser.parsDate(dailyForecast5.date).day)",
-                    minTemp: dailyForecast5.temperature.minimum.value,
-                    maxTemp: dailyForecast5.temperature.maximum.value))
+                let modelDay = ModelTVCellDay(dayName: "\(DateParser.parsDate(dailyForecast5.date).day)", minTemp: dailyForecast5.temperature.minimum.value, maxTemp: dailyForecast5.temperature.maximum.value)
+                arrDayTempNew.append(modelDay)
             }
+            self.arrDayTemp = arrDayTempNew
         }
         
         // MARK: - RELOAD DATA CV HOURS TEMPER:
