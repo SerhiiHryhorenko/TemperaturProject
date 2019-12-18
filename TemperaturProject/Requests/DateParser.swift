@@ -18,6 +18,7 @@ class DateParser {
         let minutes = calendar.component(.minute, from: formattedDate)
         let hours = calendar.component(.hour, from: formattedDate)
         let day = calendar.component(.weekday, from: formattedDate)
+        //let timeZone = calendar.component(.timeZone, from: formattedDate)
             switch day {
                 case 2:
                     return (hours, minutes, "Monday")

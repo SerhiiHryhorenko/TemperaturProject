@@ -40,6 +40,15 @@ class MainViewController: UIViewController {
     private let oneDayForecastService = OneDayForecastService()
     private let fiveDayForecastService = FiveDayForecastService()
     private let twentyHoursForecastService = TwentyHoursForecastService()
+    private let cityTimeZone = CityTimeZone()
+    
+    private var timeZone: Double? {
+        didSet {
+            DispatchQueue.main.async {
+                _ = self.timeZone
+            }
+        }
+    }
     
     private var cityName: String? {
         didSet {
@@ -98,9 +107,15 @@ class MainViewController: UIViewController {
             self.cityName = cityName.localizedName
         }
         
+        cityTimeZone.fetchTimeZone(cityKey: locationKey) { (tz) in
+            self.timeZone = tz.gmtOffset
+            print (tz.gmtOffset)
+        }
+        
+        
         // MARK: - RELOAD DATA TV SUN RISE_SET:
         oneDayForecastService.fetchDayForecast(cityKey: locationKey) { (oneDayForecast) in
-            print(oneDayForecast)
+            //print(oneDayForecast)
             if let dailyForecast = oneDayForecast.dailyForecasts.first {
                 self.currentTemperature = dailyForecast.temperature.maximum.value
                 
@@ -119,7 +134,7 @@ class MainViewController: UIViewController {
         }
         // MARK: - RELOAD DATA TV DAY TEMPER:
         fiveDayForecastService.fetchDayForecast(cityKey: locationKey) { (fiveDayForecast) in
-            print(fiveDayForecast)
+            //print(fiveDayForecast)
             
             var arrDayTempNew: [ModelTVCellDay] = []
             
@@ -132,7 +147,7 @@ class MainViewController: UIViewController {
         
         // MARK: - RELOAD DATA CV HOURS TEMPER:
         twentyHoursForecastService.fetchDayForecast(cityKey: locationKey) { (twentyHoursForecast) in
-            print(twentyHoursForecast)
+            //print(twentyHoursForecast)
             
             var hours: [String] = []
             var temperatures: [String] = []
@@ -178,6 +193,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellCVTemp", for: indexPath) as! CellCollView
+        //guard indexPath.row != 0 else { return collectionViewCell.hourCVLabel.text = "now" as String}
         collectionViewCell.hourCVLabel.text = "\( arrayTimeCV[indexPath.row])"
         collectionViewCell.tempCVLabel.text = "\(arrayTemperCV[indexPath.row])"
         //collectionViewCell.backgroundColor = .clear

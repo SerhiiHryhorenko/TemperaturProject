@@ -49,7 +49,6 @@ class ListCityViewController: UIViewController {
     
     func selectCityFromSearch(city: ResponsSearchResult) {
         favoriteCities.append(city)
-        
     }
 }
 

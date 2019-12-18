@@ -30,7 +30,7 @@ class TwentyHoursForecastService {
             do {
                 let dayForecast = try JSONDecoder().decode([ResponsTwentyHoursForecast].self, from: data)
                 completion(dayForecast)
-                print(dayForecast)
+                //print(dayForecast)
             } catch let error {
                 print("DayForecast decoding error: \(error.localizedDescription)")
             }

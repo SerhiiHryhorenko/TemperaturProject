@@ -11,7 +11,6 @@ import UIKit
 extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: get rid of magic numbers
         return resultOfRequest.count
     }
     
@@ -21,15 +20,6 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISear
         searchCell.textLabel?.text = cities.cityName
         return searchCell
     }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        guard !searchText.isEmpty else {
-//                curentArrayNames = arrayNames.filter({city -> Bool in
-//                city.lowercased().contains(searchText.lowercased())
-//                })
-//        tableSearch.reloadData()
-//        }
-//    }
         
     //MARK: - SerchResultUpdating
     func updateSearchResults(for searchController: UISearchController) {

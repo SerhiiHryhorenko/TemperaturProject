@@ -14,8 +14,7 @@ class FiveDayForecastService {
     func fetchDayForecast(cityKey: Int, details: Bool = true, metric: Bool = true, completion: @escaping (ResponsFiveDayForecast) -> Void) {
 
         let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/\(cityKey)?apikey=\(apikey)&details=\(details)&metric=\(metric)"
-        
-    //let urlString = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/326175?apikey=Het3Nj1BBlxighY7eafPBkwGEEuHUq7f&details=true&metric=true"
+
         
         guard let url = URL(string: urlString) else { return }
 
