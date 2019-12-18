@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
     private let twentyHoursForecastService = TwentyHoursForecastService()
     private let cityTimeZone = CityTimeZone()
     
-    private var timeZone: Double? {
+    private var timeZone: Int? {
         didSet {
             DispatchQueue.main.async {
                 _ = self.timeZone
@@ -107,34 +107,29 @@ class MainViewController: UIViewController {
             self.cityName = cityName.localizedName
         }
         
-        cityTimeZone.fetchTimeZone(cityKey: locationKey) { (tz) in
-            self.timeZone = tz.gmtOffset
-            print (tz.gmtOffset)
-        }
-        
-        
         // MARK: - RELOAD DATA TV SUN RISE_SET:
         oneDayForecastService.fetchDayForecast(cityKey: locationKey) { (oneDayForecast) in
-            //print(oneDayForecast)
+            self.cityTimeZone.fetchTimeZone(cityKey: self.locationKey) { (tz) in
+                
             if let dailyForecast = oneDayForecast.dailyForecasts.first {
                 self.currentTemperature = dailyForecast.temperature.maximum.value
                 
-                let sunriseHours = DateParser.parsDate(dailyForecast.sun.rise).hour
+                let sunriseHours = DateParser.parsDate(dailyForecast.sun.rise).hour + tz.timeZone.gmtOffset - 2
                 let sunriseMinutes = DateParser.parsDate(dailyForecast.sun.rise).minute
                 let sunriseTime = "\(sunriseHours):\(sunriseMinutes)"
                 
-                let sunsetHours = DateParser.parsDate(dailyForecast.sun.set).hour
+                let sunsetHours = DateParser.parsDate(dailyForecast.sun.set).hour + tz.timeZone.gmtOffset - 2
                 let sunsetMinutes = DateParser.parsDate(dailyForecast.sun.set).minute
                 let sunsetTime = "\(sunsetHours):\(sunsetMinutes)"
                 
                 let sunInfo = ModelTVCellSunRS(sunRise: "Sunrise", sRTime: sunriseTime, sunSet: "Sunset", sSTime: sunsetTime)
                 
                 self.arrSunRS = [sunInfo]
+                }
             }
         }
         // MARK: - RELOAD DATA TV DAY TEMPER:
         fiveDayForecastService.fetchDayForecast(cityKey: locationKey) { (fiveDayForecast) in
-            //print(fiveDayForecast)
             
             var arrDayTempNew: [ModelTVCellDay] = []
             

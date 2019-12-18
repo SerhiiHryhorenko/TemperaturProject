@@ -8,12 +8,19 @@
 
 import Foundation
 
-struct ResponsTimeZone: Codable {
-    let name: String
-    let gmtOffset: Double
+struct RootResponse: Codable {
+     struct ResponsTimeZone: Codable {
+         let name: String
+         let gmtOffset: Int
 
-    private enum CodingKeys: String, CodingKey {
-        case name = "Name"
-        case gmtOffset = "GmtOffset"
+         private enum CodingKeys: String, CodingKey {
+             case name = "Name"
+             case gmtOffset = "GmtOffset"
+         }
+     }
+     var  timeZone: ResponsTimeZone
+
+    enum CodingKeys: String, CodingKey {
+        case timeZone = "TimeZone"
     }
 }

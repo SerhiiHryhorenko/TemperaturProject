@@ -11,7 +11,7 @@ import Foundation
 class CityTimeZone {
     var cityKey = "326175"
     
-    func fetchTimeZone(cityKey: Int, details: Bool = true, completion: @escaping (ResponsTimeZone) -> Void) {
+    func fetchTimeZone(cityKey: Int, details: Bool = true, completion: @escaping (RootResponse) -> Void) {
 
        let urlString = "https://dataservice.accuweather.com/locations/v1/\(cityKey)?apikey=\(apikey)&details=true"
                 guard let url = URL(string: urlString) else { return }
@@ -26,9 +26,9 @@ class CityTimeZone {
                     decoder.dateDecodingStrategy = .iso8601
 
                     do {
-                        let localZone = try JSONDecoder().decode(ResponsTimeZone.self, from: data)
+                        let localZone = try JSONDecoder().decode(RootResponse.self, from: data)
                         completion(localZone)
-                        print (localZone.gmtOffset)
+                        print (localZone.timeZone.gmtOffset)
 
                     } catch let error {
                         print("TimeZone decoding error: \(error.localizedDescription)")
