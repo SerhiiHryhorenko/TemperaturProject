@@ -1,5 +1,5 @@
 //
-//  City+CoreDataClass.swift
+//  CityForecast+CoreDataClass.swift
 //  TemperaturProject
 //
 //  Created by Serhii Hryhorenko on 20.12.2019.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(City)
-public class City: NSManagedObject {
+@objc(CityForecast)
+public class CityForecast: NSManagedObject {
 
 }

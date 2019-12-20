@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tempCityNameLabel: UILabel!
     
     public var locationKey = 326175
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext //DB
     
     // MARK: - DATA SOURCE:
     private var currentTemperature: Double? {
@@ -41,6 +44,8 @@ class MainViewController: UIViewController {
     private let fiveDayForecastService = FiveDayForecastService()
     private let twentyHoursForecastService = TwentyHoursForecastService()
     private let cityTimeZone = CityTimeZone()
+    var dataToDisplay: [CityForecast]?
+    var citiesList: [City]?
     
     private var timeZone: Int? {
         didSet {
@@ -98,7 +103,7 @@ class MainViewController: UIViewController {
     }
     
     let searchController = UISearchController(searchResultsController: nil)
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
@@ -158,6 +163,63 @@ class MainViewController: UIViewController {
             
             self.arrayTimeCV = hours
             self.arrayTemperCV = temperatures
+        }
+    }
+    
+    //MARK: - Data Base
+    func displayViewController() {
+        let request: NSFetchRequest<CityItem> = CityItem.fetchRequest() //get cities' list from DB
+        do {
+            citiesList = try context.fetch(request)
+            if citiesList!.isEmpty {
+                removeOldDisplayedItem()
+                showListViewController()
+            } else {
+                loadDataToDisplay()
+                fetchDataAndDisplayOnScreen()
+            }
+        } catch {
+            print("\(Errors.fetchError), \(error)")
+        }
+    }
+    
+    func showListViewController() {
+        if let listVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListCityViewController") as? ListViewController {
+            listVC.delegate = self as? DisplayCityName
+            navigationController?.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(listVC, animated: true)
+        }
+    }
+    
+    //LOAD
+    func loadDataToDisplay() {
+        let request: NSFetchRequest = CityForecast.fetchRequest()
+        do {
+            self.dataToDisplay = try context.fetch(request)
+        } catch {
+            print("\(Errors.fetchError), \(error)")
+        }
+    }
+    
+    static func saveCityItems() {
+        do {
+            try self.context.save()
+        } catch {
+            print("\(Errors.savingError) \(error)")
+        }
+    }
+    
+    //REMOVE
+    func removeOldDisplayedItem() {
+        let request: NSFetchRequest = CityForecast.fetchRequest()
+        do {
+            let items = try context.fetch(request)
+            for el in 0 ..< items.count {
+                context.delete(items[el])
+                saveCityItems()
+            }
+        } catch {
+            print("\(Errors.fetchError), \(error)")
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ListCityViewController: UIViewController {
     
@@ -117,6 +118,27 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.cellForRow(at: indexPath)
             let pasteBoard = UIPasteboard.general
             pasteBoard.string = cell?.textLabel?.text
+        }
+    }
+    
+    //MARK: - DB
+    func addCity(_ city: ModelListCity) {
+        
+    }
+    
+    func loadCityItems() { //DB
+        let request: NSFetchRequest<CityItem> = City.fetchRequest() //request for an array of City
+        do {
+            savedCities = try delegate.context.fetch(request)
+            if savedCities.isEmpty {
+                self.navigationItem.leftBarButtonItem?.isEnabled = false
+                self.navigationItem.leftBarButtonItem?.tintColor = UIColor.clear
+            } else {
+                self.navigationItem.leftBarButtonItem?.isEnabled = true
+                self.navigationItem.leftBarButtonItem?.tintColor = UIColor.lightGray
+            }
+        } catch {
+            print("\(Errors.fetchError) \(error)")
         }
     }
 }

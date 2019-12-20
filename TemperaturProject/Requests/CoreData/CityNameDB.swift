@@ -28,7 +28,7 @@ class DataController {
         }
     }
     
-    func insertCity(withBook: Bool) throws {
+    func insertCity(withCity: Bool) throws {
         let city = City(context: self.context)
         city.nameCity = "Vinnytsia"
         self.context.insert(city)
