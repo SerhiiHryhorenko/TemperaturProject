@@ -12,6 +12,25 @@ class SerchViewControler: UIViewController {
 
     @IBOutlet weak var tableSearch: UITableView!
     
+//    @IBAction func pushListCityVCAction(_ sender: UIButton) {
+//        //let _ = UIStoryboard(name: "Main", bundle: nil)
+//           
+//        if let searchVC = storyboard!.instantiateViewController(withIdentifier: "ListCityViewController") as? ListCityViewController {
+//            //searchVC.delegate =
+//        navigationController?.pushViewController(searchVC, animated: true)
+//        }
+//    }
+    
+    
+    //    @IBAction func pushListVCAction(_ sender: Any) {
+    //        let _ = UIStoryboard(name: "Main", bundle: nil)
+    //
+    //        if let mainVC = storyboard!.instantiateViewController(withIdentifier: "ListCityViewController") as? ListCityViewController {
+    //            mainVC.delegate = self
+    //            navigationController?.pushViewController(mainVC, animated: true)
+    //        }
+    //    }
+    
     let service = CityNameServiceText()
     let presenter = ModelSearch()
     var resultOfRequest = [ResponsSearchResult]() {
@@ -51,7 +70,7 @@ class SerchViewControler: UIViewController {
     }
 
     fileprivate func setupNavigationBar(){
-        self.navigationItem.title = "***"
+        self.navigationItem.title = "Сhoice of city"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         let serchController = UISearchController(searchResultsController: nil)

@@ -8,35 +8,46 @@
 
 import Foundation
 
+struct ForecastDate {
+    var hour: Int
+    var minute: Int
+    var day: String
+}
+
 class DateParser {
-    static func parsDate(_ dateStr: String) -> (hour: Int, minute: Int, day: String) {
+    static func parsDate(_ dateStr: String, timeZoneId: String) -> ForecastDate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//        dateFormatter.timeZone = TimeZone(identifier: timeZoneId)
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
         let formattedDate = dateFormatter.date(from: dateStr)!
-        let calendar = Calendar.current
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: timeZoneId)!
         let minutes = calendar.component(.minute, from: formattedDate)
         let hours = calendar.component(.hour, from: formattedDate)
         let day = calendar.component(.weekday, from: formattedDate)
         //let timeZone = calendar.component(.timeZone, from: formattedDate)
-            switch day {
-                case 2:
-                    return (hours, minutes, "Monday")
-                case 3:
-                    return (hours, minutes, "Tuesday")
-                case 4:
-                    return (hours, minutes, "Wednesday")
-                case 5:
-                    return (hours, minutes, "Thursday")
-                case 6:
-                    return (hours, minutes, "Friday")
-                case 7:
-                    return (hours, minutes, "Saturday")
-                case 1:
-                    return (hours, minutes, "Sunday")
-                default:
-                    return (1,1,"error number day")
-            }
+        var dayName: String
+        switch day {
+        case 2:
+            dayName = "Monday"
+        case 3:
+            dayName = "Tuesday"
+        case 4:
+            dayName = "Wednesday"
+        case 5:
+            dayName = "Thursday"
+        case 6:
+            dayName = "Friday"
+        case 7:
+            dayName = "Saturday"
+        case 1:
+            dayName = "Sunday"
+        default:
+            dayName = "Everyday"
+        }
+        
+        return ForecastDate(hour: hours, minute: minutes, day: dayName)
     }
 }
 

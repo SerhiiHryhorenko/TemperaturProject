@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tempCityNameLabel: UILabel!
     
     public var locationKey = 326175
+//    public cities: [String] = []
     
     // MARK: - DATA SOURCE:
     private var currentTemperature: Double? {
@@ -42,13 +43,7 @@ class MainViewController: UIViewController {
     private let twentyHoursForecastService = TwentyHoursForecastService()
     private let cityTimeZone = CityTimeZone()
     
-    private var timeZone: Int? {
-        didSet {
-            DispatchQueue.main.async {
-                _ = self.timeZone
-            }
-        }
-    }
+    private var timeZone: String?
     
     private var cityName: String? {
         didSet {
@@ -101,7 +96,7 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
+        
         // MARK: - RELOAD CITY Name:
         cityNameServise.fetchCityName(cityKey: locationKey) { (cityName) in
             self.cityName = cityName.localizedName
@@ -111,59 +106,64 @@ class MainViewController: UIViewController {
         oneDayForecastService.fetchDayForecast(cityKey: locationKey) { (oneDayForecast) in
             self.cityTimeZone.fetchTimeZone(cityKey: self.locationKey) { (tz) in
                 
-            if let dailyForecast = oneDayForecast.dailyForecasts.first {
-                self.currentTemperature = dailyForecast.temperature.maximum.value
+//                self.timeZone = tz.timeZone.name
                 
-                let sunriseHours = DateParser.parsDate(dailyForecast.sun.rise).hour + tz.timeZone.gmtOffset - 2
-                let sunriseMinutes = DateParser.parsDate(dailyForecast.sun.rise).minute
-                let sunriseTime = "\(sunriseHours):\(sunriseMinutes)"
+                if let dailyForecast = oneDayForecast.dailyForecasts.first {
+                    self.currentTemperature = dailyForecast.temperature.maximum.value
+                    let forecastDateRise = DateParser.parsDate(dailyForecast.sun.rise, timeZoneId: tz.timeZone.name)
+                    let forecastDateSet = DateParser.parsDate(dailyForecast.sun.set, timeZoneId: tz.timeZone.name)
+                    
+                    let sunriseHours = forecastDateRise.hour
+                    let sunriseMinutes = forecastDateRise.minute
+                    let sunriseTime = "\(sunriseHours):\(sunriseMinutes)"
+                    
+                    let sunsetHours = forecastDateSet.hour
+                    let sunsetMinutes = forecastDateSet.minute
+                    let sunsetTime = "\(sunsetHours):\(sunsetMinutes)"
+                    
+                    let sunInfo = ModelTVCellSunRS(sunRise: "Sunrise", sRTime: sunriseTime, sunSet: "Sunset", sSTime: sunsetTime)
+                    
+                    self.arrSunRS = [sunInfo]
+                }
                 
-                let sunsetHours = DateParser.parsDate(dailyForecast.sun.set).hour + tz.timeZone.gmtOffset - 2
-                let sunsetMinutes = DateParser.parsDate(dailyForecast.sun.set).minute
-                let sunsetTime = "\(sunsetHours):\(sunsetMinutes)"
+                // MARK: - RELOAD DATA TV DAY TEMPER:
+                self.fiveDayForecastService.fetchDayForecast(cityKey: self.locationKey) { (fiveDayForecast) in
+                    
+                    var arrDayTempNew: [ModelTVCellDay] = []
+                    
+                    for dailyForecast5 in fiveDayForecast.dailyForecasts {
+                        let day = DateParser.parsDate(dailyForecast5.date, timeZoneId: tz.timeZone.name).day
+                        let modelDay = ModelTVCellDay(dayName: "\(day)", minTemp: dailyForecast5.temperature.minimum.value, maxTemp: dailyForecast5.temperature.maximum.value)
+                        arrDayTempNew.append(modelDay)
+                    }
+                    self.arrDayTemp = arrDayTempNew
+                }
                 
-                let sunInfo = ModelTVCellSunRS(sunRise: "Sunrise", sRTime: sunriseTime, sunSet: "Sunset", sSTime: sunsetTime)
-                
-                self.arrSunRS = [sunInfo]
+                // MARK: - RELOAD DATA CV HOURS TEMPER:
+                self.twentyHoursForecastService.fetchDayForecast(cityKey: self.locationKey) { (twentyHoursForecast) in
+                    //print(twentyHoursForecast)
+                    
+                    var hours: [String] = []
+                    var temperatures: [String] = []
+                    
+                    for dailyForecast12 in twentyHoursForecast {
+                        let hour = "\(DateParser.parsDate(dailyForecast12.dateTime, timeZoneId: tz.timeZone.name).hour)"
+                        let timeColView = "\(hour):00"
+                        let maxTemperature = "\(dailyForecast12.temperature.value)"
+                        
+                        hours.append(timeColView)
+                        temperatures.append(maxTemperature)
+                    }
+                    
+                    self.arrayTimeCV = hours
+                    self.arrayTemperCV = temperatures
                 }
             }
-        }
-        // MARK: - RELOAD DATA TV DAY TEMPER:
-        fiveDayForecastService.fetchDayForecast(cityKey: locationKey) { (fiveDayForecast) in
-            
-            var arrDayTempNew: [ModelTVCellDay] = []
-            
-            for dailyForecast5 in fiveDayForecast.dailyForecasts {
-                let modelDay = ModelTVCellDay(dayName: "\(DateParser.parsDate(dailyForecast5.date).day)", minTemp: dailyForecast5.temperature.minimum.value, maxTemp: dailyForecast5.temperature.maximum.value)
-                arrDayTempNew.append(modelDay)
-            }
-            self.arrDayTemp = arrDayTempNew
-        }
-        
-        // MARK: - RELOAD DATA CV HOURS TEMPER:
-        twentyHoursForecastService.fetchDayForecast(cityKey: locationKey) { (twentyHoursForecast) in
-            //print(twentyHoursForecast)
-            
-            var hours: [String] = []
-            var temperatures: [String] = []
-            
-            for dailyForecast12 in twentyHoursForecast {
-                let hour = "\(DateParser.parsDate(dailyForecast12.dateTime).hour)"
-                let timeColView = "\(hour):00"
-                let maxTemperature = "\(dailyForecast12.temperature.value)"
-                
-                hours.append(timeColView)
-                temperatures.append(maxTemperature)
-            }
-            
-            self.arrayTimeCV = hours
-            self.arrayTemperCV = temperatures
         }
     }
     
     @IBAction func pushListVCAction(_ sender: Any) {
         let _ = UIStoryboard(name: "Main", bundle: nil)
-        
         
         if let mainVC = storyboard!.instantiateViewController(withIdentifier: "ListCityViewController") as? ListCityViewController {
             mainVC.delegate = self
