@@ -25,6 +25,11 @@ class ListCityViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        var savedCities = UserDefaults.standard.array(forKey: "cities") as? [String]
+//        if savedCities != nil {
+//            favoriteCities.append(savedCities)
+//        }
+        
         
         myTableView.reloadData()
     }
@@ -32,6 +37,7 @@ class ListCityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func addCity(_ sender: Any) {
@@ -50,6 +56,16 @@ class ListCityViewController: UIViewController {
     func selectCityFromSearch(city: ResponsSearchResult) {
         favoriteCities.append(city)
     }
+    
+//    // Save city
+//    // get saved cities:
+//    var savedCities = UserDefaults.standard.array(forKey: "cities") as? [String] ?? []
+//
+//    // TODO: if not contains
+//    // add new selected city
+//    savedCities.append(cities[indexPath.row].localizedName)
+//    // save changes
+//    UserDefaults.standard.set(savedCities, forKey: "cities")
 }
 
 
@@ -59,6 +75,12 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
         delegate?.selectCityFromSearch(city: favoriteCities[indexPath.row])
         
         navigationController?.popViewController(animated: true)
+        
+        if myTableView.textInputContextIdentifier != "" {
+        UserDefaults.standard.set(myTableView.textInputContextIdentifier, forKey: "Cities")
+        UserDefaults.standard.synchronize()
+                   self.dismiss(animated: true, completion: nil)
+        }
     }
     
     //показує кількість ячейок в таблиці (розмір масиву)

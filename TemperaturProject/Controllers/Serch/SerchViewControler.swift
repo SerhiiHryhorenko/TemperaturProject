@@ -12,27 +12,13 @@ class SerchViewControler: UIViewController {
 
     @IBOutlet weak var tableSearch: UITableView!
     
-//    @IBAction func pushListCityVCAction(_ sender: UIButton) {
-//        //let _ = UIStoryboard(name: "Main", bundle: nil)
-//           
-//        if let searchVC = storyboard!.instantiateViewController(withIdentifier: "ListCityViewController") as? ListCityViewController {
-//            //searchVC.delegate =
-//        navigationController?.pushViewController(searchVC, animated: true)
-//        }
-//    }
-    
-    
-    //    @IBAction func pushListVCAction(_ sender: Any) {
-    //        let _ = UIStoryboard(name: "Main", bundle: nil)
-    //
-    //        if let mainVC = storyboard!.instantiateViewController(withIdentifier: "ListCityViewController") as? ListCityViewController {
-    //            mainVC.delegate = self
-    //            navigationController?.pushViewController(mainVC, animated: true)
-    //        }
-    //    }
+    @IBAction func goToRoot(_ sender: UIButton) {
+    navigationController?.popToRootViewController(animated: true)
+    //navigationController?.popViewController(animated: true)
+    }
     
     let service = CityNameServiceText()
-    let presenter = ModelSearch()
+    //let presenter = ModelSearch()
     var resultOfRequest = [ResponsSearchResult]() {
         didSet {
             DispatchQueue.main.async {
@@ -68,6 +54,12 @@ class SerchViewControler: UIViewController {
         searchCity.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchCity
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToListCity"{
+//            _ = segue.destination as! ListCityViewController
+//        }
+//    }
 
     fileprivate func setupNavigationBar(){
         self.navigationItem.title = "Сhoice of city"
@@ -75,6 +67,5 @@ class SerchViewControler: UIViewController {
         
         let serchController = UISearchController(searchResultsController: nil)
         serchController.searchResultsUpdater = self
-        
     }
 }

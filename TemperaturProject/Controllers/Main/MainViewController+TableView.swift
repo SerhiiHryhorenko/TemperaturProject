@@ -12,13 +12,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if section == 0 {
-            return "Temperature by day of the week"
-        } else {
-            return "Sunrise and sunset time"
-        }
+//        if section == 0 {
+//            return "Temperature by day of the week"
+//        } else {
+//            return "Sunrise and sunset time"
+//        }
+        return ""
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
@@ -52,8 +52,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             let dailyTemperatureInfo = arrDayTemp[indexPath.row]
             
             firstCell.dayTVLabel.text = dailyTemperatureInfo.dayName
-            firstCell.tMaxLabel.text = "\(dailyTemperatureInfo.maxTemp)"
-            firstCell.tMinLabel.text = "\(dailyTemperatureInfo.minTemp)"
+            firstCell.tMinLabel.text = "\(dailyTemperatureInfo.maxTemp)"
+            firstCell.tMaxLabel.text = "\(dailyTemperatureInfo.minTemp)"
             
             return firstCell
             

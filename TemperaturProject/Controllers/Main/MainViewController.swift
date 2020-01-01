@@ -115,11 +115,16 @@ class MainViewController: UIViewController {
                     
                     let sunriseHours = forecastDateRise.hour
                     let sunriseMinutes = forecastDateRise.minute
-                    let sunriseTime = "\(sunriseHours):\(sunriseMinutes)"
+                    var sunriseTime = "\(sunriseHours):\(sunriseMinutes)"
                     
                     let sunsetHours = forecastDateSet.hour
                     let sunsetMinutes = forecastDateSet.minute
                     let sunsetTime = "\(sunsetHours):\(sunsetMinutes)"
+                    
+                    if (forecastDateRise.hour / 10 == 0 || forecastDateRise.minute / 10 == 0)
+                    {
+                        sunriseTime = "0\(sunriseHours):\(sunriseMinutes)0"
+                    }
                     
                     let sunInfo = ModelTVCellSunRS(sunRise: "Sunrise", sRTime: sunriseTime, sunSet: "Sunset", sSTime: sunsetTime)
                     
@@ -188,10 +193,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellCVTemp", for: indexPath) as! CellCollView
-        //guard indexPath.row != 0 else { return collectionViewCell.hourCVLabel.text = "now" as String}
-        collectionViewCell.hourCVLabel.text = "\( arrayTimeCV[indexPath.row])"
+
+        if indexPath.row == 0 {
+            collectionViewCell.hourCVLabel.text = "now"
+        }
+        tempCityNameLabel.text = "\(arrayTemperCV[0])"
+        
+        collectionViewCell.hourCVLabel.text = "\(arrayTimeCV[indexPath.row])"
         collectionViewCell.tempCVLabel.text = "\(arrayTemperCV[indexPath.row])"
-        //collectionViewCell.backgroundColor = .clear
+       
         return collectionViewCell
     }
     

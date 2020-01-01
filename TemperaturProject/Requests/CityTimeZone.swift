@@ -28,7 +28,7 @@ class CityTimeZone {
                     do {
                         let localZone = try JSONDecoder().decode(RootResponse.self, from: data)
                         completion(localZone)
-                        print (localZone.timeZone.gmtOffset)
+                        //print (localZone.timeZone.gmtOffset)
 
                     } catch let error {
                         print("TimeZone decoding error: \(error.localizedDescription)")
