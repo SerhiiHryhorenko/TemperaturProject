@@ -35,8 +35,38 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISear
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.selectCityFromSearch(city: resultOfRequest[indexPath.row])
+        //***
+        let chous = resultOfRequest[indexPath.row].cityName
+        print(resultOfRequest[indexPath.row].cityName)
         
+        selectCitySearch = UserDefaults.standard.object(forKey: "CITY") as? [String] ?? []
+        print("selectCity ==>> \(selectCitySearch)")
+        
+        var flag = 0
+        
+        if selectCitySearch.count < 1 {
+            selectCitySearch.append(chous)
+        }
+            else{
+            for i in selectCitySearch{
+                //print(i)
+                if chous != i{
+                    flag += 1
+                }
+                print("flag\(flag)  selectCity.count\(selectCitySearch.count) ")
+                if flag == selectCitySearch.count {
+                    selectCitySearch.append(chous)
+                }
+            }
+        }
+        
+        UserDefaults.standard.set(selectCitySearch, forKey: "CITY")
+        UserDefaults.standard.synchronize()
+        print("2    selectCity ==>> \(selectCitySearch)")
+        _ = self.navigationController?.popViewController(animated: true)
+        
+        // ***
+        delegate?.selectCityFromSearch(city: resultOfRequest[indexPath.row])
         navigationController?.popViewController(animated: true)
     }
 }

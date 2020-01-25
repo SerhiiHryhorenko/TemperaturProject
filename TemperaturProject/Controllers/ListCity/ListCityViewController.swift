@@ -15,22 +15,26 @@ class ListCityViewController: UIViewController {
     public weak var delegate: MainViewController?
     
     let city = ResponsCityName(localizedName: "name")
+    let cityName = ResponsSearchResult(key: "key", cityName: "")
     let identifier = "myCell"
     
-    var favoriteCities: [ResponsSearchResult] = []
+    var listCity : [String] = UserDefaults.standard.object(forKey: "CITY") as? [String] ?? []
     
-    var selectedCities = ["1", "2", "3", "4", "5"]
-    var selectedCitiesKeys = ["1", "2", "3", "4", "5"]
+    var favoriteCities: [ResponsSearchResult] = []
+    //var selectCitySearch: [String] = []
+    
+   // var selectedCities = ["1", "2", "3", "4", "5"]
+    //var selectedCitiesKeys = ["1", "2", "3", "4", "5"]
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        var savedCities = UserDefaults.standard.array(forKey: "cities") as? [String]
-//        if savedCities != nil {
-//            favoriteCities.append(savedCities)
-//        }
+        let savedCities = UserDefaults.standard.array(forKey: "cities") as? [String]
+        if savedCities != nil {
+            
+        }
         
-        
+        favoriteCities.append(cityName)
         myTableView.reloadData()
     }
     
@@ -55,7 +59,10 @@ class ListCityViewController: UIViewController {
     
     func selectCityFromSearch(city: ResponsSearchResult) {
         favoriteCities.append(city)
+        
     }
+
+}
     
 //    // Save city
 //    // get saved cities:
@@ -66,21 +73,14 @@ class ListCityViewController: UIViewController {
 //    savedCities.append(cities[indexPath.row].localizedName)
 //    // save changes
 //    UserDefaults.standard.set(savedCities, forKey: "cities")
-}
-
 
 extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.selectCityFromSearch(city: favoriteCities[indexPath.row])
         
+        delegate?.selectCityFromSearch(city: favoriteCities[indexPath.row])
         navigationController?.popViewController(animated: true)
         
-        if myTableView.textInputContextIdentifier != "" {
-        UserDefaults.standard.set(myTableView.textInputContextIdentifier, forKey: "Cities")
-        UserDefaults.standard.synchronize()
-                   self.dismiss(animated: true, completion: nil)
-        }
     }
     
     //показує кількість ячейок в таблиці (розмір масиву)
@@ -92,6 +92,12 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
         cell.textLabel?.text = favoriteCities[indexPath.row].cityName
+        
+//        if myTableView.textInputContextIdentifier != "" {
+//        UserDefaults.standard.set(myTableView.textInputContextIdentifier, forKey: "key")
+//        UserDefaults.standard.synchronize()
+//                   self.dismiss(animated: true, completion: nil)
+//        }
         
         return cell
     }
@@ -108,6 +114,8 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
                 tableView.deleteRows(at: [indexPath], with: .left)
             })
         }
+        UserDefaults.standard.set(favoriteCities, forKey: "CITY")
+        UserDefaults.standard.synchronize()
     }
     
     // переміщення ячейок
@@ -119,6 +127,9 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
         let item = favoriteCities[sourceIndexPath.row]
         favoriteCities.remove(at: sourceIndexPath.row)
         favoriteCities.insert(item, at: destinationIndexPath.row)
+        UserDefaults.standard.set(favoriteCities, forKey: "CITY")
+        UserDefaults.standard.synchronize()
+        isEditing = false
     }
     
     // при довгому нажатті зявляється копі/виріз...

@@ -15,6 +15,7 @@ struct ForecastDate {
 }
 
 class DateParser {
+    
     static func parsDate(_ dateStr: String, timeZoneId: String) -> ForecastDate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

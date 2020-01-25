@@ -10,9 +10,11 @@ import Foundation
 
 struct ResponsCityName: Decodable {
     // TODO: lowercase
+    //let key: String
     var localizedName: String
     
     enum CodingKeys: String, CodingKey {
+        //case key = "Key"
         case localizedName = "LocalizedName"
     }
 }

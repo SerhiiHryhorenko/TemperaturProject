@@ -92,6 +92,14 @@ class MainViewController: UIViewController {
         }
     }
     
+    private func v(_a: Int) -> String{
+        if _a / 10 == 0 {
+            return ("0\(_a)")
+        } else {
+            return ("\(_a)")
+        }
+    }
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidAppear(_ animated: Bool) {
@@ -113,18 +121,13 @@ class MainViewController: UIViewController {
                     let forecastDateRise = DateParser.parsDate(dailyForecast.sun.rise, timeZoneId: tz.timeZone.name)
                     let forecastDateSet = DateParser.parsDate(dailyForecast.sun.set, timeZoneId: tz.timeZone.name)
                     
-                    let sunriseHours = forecastDateRise.hour
-                    let sunriseMinutes = forecastDateRise.minute
-                    var sunriseTime = "\(sunriseHours):\(sunriseMinutes)"
+                    let sunriseHours = self.v(_a: forecastDateRise.hour)
+                    let sunriseMinutes = self.v(_a: forecastDateRise.minute)
+                    let sunriseTime = "\(sunriseHours):\(sunriseMinutes)"
                     
-                    let sunsetHours = forecastDateSet.hour
-                    let sunsetMinutes = forecastDateSet.minute
+                    let sunsetHours = self.v(_a: forecastDateSet.hour)
+                    let sunsetMinutes = self.v(_a: forecastDateSet.minute)
                     let sunsetTime = "\(sunsetHours):\(sunsetMinutes)"
-                    
-                    if (forecastDateRise.hour / 10 == 0 || forecastDateRise.minute / 10 == 0)
-                    {
-                        sunriseTime = "0\(sunriseHours):\(sunriseMinutes)0"
-                    }
                     
                     let sunInfo = ModelTVCellSunRS(sunRise: "Sunrise", sRTime: sunriseTime, sunSet: "Sunset", sSTime: sunsetTime)
                     
@@ -197,9 +200,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.row == 0 {
             collectionViewCell.hourCVLabel.text = "now"
         }
+        else {
+            collectionViewCell.hourCVLabel.text = "\( arrayTimeCV[indexPath.row])"
+        }
         tempCityNameLabel.text = "\(arrayTemperCV[0])"
         
-        collectionViewCell.hourCVLabel.text = "\(arrayTimeCV[indexPath.row])"
+        //collectionViewCell.hourCVLabel.text = "\( arrayTimeCV[indexPath.row])"
         collectionViewCell.tempCVLabel.text = "\(arrayTemperCV[indexPath.row])"
        
         return collectionViewCell

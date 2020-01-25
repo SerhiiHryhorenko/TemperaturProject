@@ -15,7 +15,7 @@ struct ResponsSearchResult: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case key      = "Key"
-        case cityName = "LocalizedName"
+        case cityName = "CityName"
       //  case country  = "Country"
     }
 }

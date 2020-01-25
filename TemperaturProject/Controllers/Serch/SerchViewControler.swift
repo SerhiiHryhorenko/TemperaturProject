@@ -18,9 +18,17 @@ class SerchViewControler: UIViewController {
     }
     
     let service = CityNameServiceText()
-    //let presenter = ModelSearch()
+    var selectCitySearch: [String] = []
     var resultOfRequest = [ResponsSearchResult]() {
         didSet {
+            DispatchQueue.main.async {
+                self.tableSearch.reloadData()
+            }
+        }
+    }
+    
+    var resultCityNameSearch = [ResponsCityName](){
+        didSet{
             DispatchQueue.main.async {
                 self.tableSearch.reloadData()
             }
@@ -55,11 +63,11 @@ class SerchViewControler: UIViewController {
         navigationItem.searchController = searchCity
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToListCity"{
-//            _ = segue.destination as! ListCityViewController
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToListCity"{
+            _ = segue.destination as! ListCityViewController
+        }
+    }
 
     fileprivate func setupNavigationBar(){
         self.navigationItem.title = "Сhoice of city"
