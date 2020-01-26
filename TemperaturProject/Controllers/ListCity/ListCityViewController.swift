@@ -15,7 +15,7 @@ class ListCityViewController: UIViewController {
     public weak var delegate: MainViewController?
     
     let city = ResponsCityName(localizedName: "name")
-    let cityName = ResponsSearchResult(key: "key", cityName: "")
+    //let cityName = ResponsSearchResult(key: "key", cityName: "")
     let identifier = "myCell"
     
     var listCity : [String] = UserDefaults.standard.object(forKey: "CITY") as? [String] ?? []
@@ -34,7 +34,7 @@ class ListCityViewController: UIViewController {
             
         }
         
-        favoriteCities.append(cityName)
+        //favoriteCities.append(cityName)
         myTableView.reloadData()
     }
     

@@ -26,14 +26,14 @@ class SerchViewControler: UIViewController {
             }
         }
     }
-    
-    var resultCityNameSearch = [ResponsCityName](){
-        didSet{
-            DispatchQueue.main.async {
-                self.tableSearch.reloadData()
-            }
-        }
-    }
+//    
+//    var resultCityNameSearch = [ResponsCityName](){
+//        didSet{
+//            DispatchQueue.main.async {
+//                self.tableSearch.reloadData()
+//            }
+//        }
+//    }
     
     let searchCity = UISearchController(searchResultsController: nil)
     weak var delegate: ListCityViewController?
