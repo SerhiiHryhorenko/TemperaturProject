@@ -15,16 +15,12 @@ class ListCityViewController: UIViewController {
     public weak var delegate: MainViewController?
     
     let city = ResponsCityName(localizedName: "name")
-    //let cityName = ResponsSearchResult(key: "key", cityName: "")
     let identifier = "myCell"
     
     var listCity : [String] = UserDefaults.standard.object(forKey: "CITY") as? [String] ?? []
     
     var favoriteCities: [ResponsSearchResult] = []
-    //var selectCitySearch: [String] = []
     
-   // var selectedCities = ["1", "2", "3", "4", "5"]
-    //var selectedCitiesKeys = ["1", "2", "3", "4", "5"]
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +30,6 @@ class ListCityViewController: UIViewController {
             
         }
         
-        //favoriteCities.append(cityName)
         myTableView.reloadData()
     }
     
@@ -54,7 +49,7 @@ class ListCityViewController: UIViewController {
     }
     
     @IBAction func editTable(_ sender: Any) {
-        myTableView.isEditing = !myTableView.isEditing //якщо таблиця не редагується, то редагувати по нажаттюб якщо нажимаємо і вона редагується, то перестати редагувати
+        myTableView.isEditing = !myTableView.isEditing
     }
     
     func selectCityFromSearch(city: ResponsSearchResult) {
@@ -83,25 +78,18 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    //показує кількість ячейок в таблиці (розмір масиву)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoriteCities.count
     }
-    // описується сама ячейка
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
         cell.textLabel?.text = favoriteCities[indexPath.row].cityName
         
-//        if myTableView.textInputContextIdentifier != "" {
-//        UserDefaults.standard.set(myTableView.textInputContextIdentifier, forKey: "key")
-//        UserDefaults.standard.synchronize()
-//                   self.dismiss(animated: true, completion: nil)
-//        }
-        
         return cell
     }
-    //видалення ячейки
+
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -118,7 +106,6 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
         UserDefaults.standard.synchronize()
     }
     
-    // переміщення ячейок
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -132,7 +119,6 @@ extension ListCityViewController: UITableViewDataSource, UITableViewDelegate {
         isEditing = false
     }
     
-    // при довгому нажатті зявляється копі/виріз...
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         return true
     }

@@ -21,15 +21,6 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISear
         searchCell.textLabel?.text = cities.cityName
         return searchCell
     }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        guard !searchText.isEmpty else {
-//                curentArrayNames = arrayNames.filter({city -> Bool in
-//                city.lowercased().contains(searchText.lowercased())
-//                })
-//        tableSearch.reloadData()
-//        }
-//    }
         
     //MARK: - SerchResultUpdating
     func updateSearchResults(for searchController: UISearchController) {
@@ -46,7 +37,6 @@ extension SerchViewControler: UITableViewDelegate, UITableViewDataSource, UISear
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.selectCityFromSearch(city: resultOfRequest[indexPath.row])
-        
         navigationController?.popViewController(animated: true)
     }
 }

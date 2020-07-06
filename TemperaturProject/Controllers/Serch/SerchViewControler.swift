@@ -14,7 +14,6 @@ class SerchViewControler: UIViewController {
     
     @IBAction func goToRoot(_ sender: UIButton) {
     navigationController?.popToRootViewController(animated: true)
-    //navigationController?.popViewController(animated: true)
     }
     
     let service = CityNameServiceText()
@@ -26,18 +25,9 @@ class SerchViewControler: UIViewController {
             }
         }
     }
-//    
-//    var resultCityNameSearch = [ResponsCityName](){
-//        didSet{
-//            DispatchQueue.main.async {
-//                self.tableSearch.reloadData()
-//            }
-//        }
-//    }
     
     let searchCity = UISearchController(searchResultsController: nil)
     weak var delegate: ListCityViewController?
-    //var curentArrayNames = ListCityViewController()
     
     
     //MARK: - передача данних
@@ -56,7 +46,6 @@ class SerchViewControler: UIViewController {
         super.viewDidLoad()
 
         self.setupNavigationBar()
-        //setUpCityName()
         searchCity.searchResultsUpdater = self
         definesPresentationContext = true
         searchCity.obscuresBackgroundDuringPresentation = false
